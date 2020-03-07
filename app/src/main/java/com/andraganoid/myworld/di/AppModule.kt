@@ -1,6 +1,6 @@
 package com.andraganoid.myworld.di
 
-import com.andraganoid.myworld.api.WorldApi
+import com.andraganoid.myworld.api.CountriesApi
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -23,6 +23,6 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providesApi(retrofit: Retrofit): WorldApi = retrofit.create(WorldApi::class.java)
+    fun providesApi(retrofit: Retrofit): CountriesApi = retrofit.create(CountriesApi::class.java)
 
 }

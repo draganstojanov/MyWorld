@@ -1,14 +1,16 @@
 package com.andraganoid.myworld.di
 
-import com.andraganoid.myworld.api.WorldApi
+import com.andraganoid.myworld.countries.CountriesViewModelFactory
+import com.andraganoid.myworld.repo.CountriesRepository
 import dagger.Module
 import dagger.Provides
 
 @Module
 class ViewModelModule {
 
- //   @Provides
-//    fun providesMainViewModelFactory(worldApi: WorldApi): MainViewModelFactory {
-//        return MainViewModelFactory(api)
-//    }
-}
+        @Provides
+        fun provideCountriesViewModelFactory(countriesRepository: CountriesRepository): CountriesViewModelFactory {
+            return CountriesViewModelFactory(countriesRepository)
+        }
+    }
+
