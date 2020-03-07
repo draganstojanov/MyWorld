@@ -1,11 +1,9 @@
 package com.andraganoid.myworld.repo
 
+import com.andraganoid.myworld.api.CountriesApi
 import com.andraganoid.myworld.model.Country
+import kotlinx.coroutines.Deferred
 
-interface CountriesRepository {
-
-    fun getAllCountries(
-        onSuccess: (countries: ArrayList<Country>) -> Unit,
-        onFailure: (t: Throwable) -> Unit
-    )
+class CountriesRepository(private val countriesApi: CountriesApi) {
+    fun getAllCountries(): Deferred<List<Country>> = countriesApi.getAllCountries()
 }
