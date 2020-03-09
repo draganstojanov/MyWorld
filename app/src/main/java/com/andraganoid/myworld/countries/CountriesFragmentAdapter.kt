@@ -11,25 +11,37 @@ import com.andraganoid.myworld.model.Country
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 
 class CountriesFragmentAdapter(private val activity: Activity) : RecyclerView.Adapter<CountriesFragmentAdapter.CountriesViewHolder>() {
+    var finalList: ArrayList<Country>? = arrayListOf()
 
-    var filteredList: List<Country> = emptyList()
+    private fun finalListSet(fList: List<Country>?) {
+        finalList?.clear()
+        finalList?.addAll(fList!!)
+        notifyDataSetChanged()
+    }
+
+    var filteredList: List<Country>? = emptyList()
         set(value) {
             field = value
-            notifyDataSetChanged()
+            finalListSet(filteredList)
+            // notifyDataSetChanged()
         }
 
+    fun searchFilter(search: String) {
+        finalListSet(filteredList?.filter { country ->
+            country.name?.toLowerCase()!!.contains(search.toLowerCase()) || country.nativeName?.toLowerCase()!!.contains(search.toLowerCase())
+        })
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountriesViewHolder {
-//        val view=LayoutInflater.from(parent.context).inflate(R.layout.countries_item,false)
 
         val binding = CountriesItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CountriesViewHolder(binding)
 
     }
 
-    override fun getItemCount(): Int = filteredList.size
+    override fun getItemCount(): Int = finalList!!.size
 
-    override fun onBindViewHolder(holder: CountriesViewHolder, position: Int) = holder.bind(filteredList.get(position))
-
+    override fun onBindViewHolder(holder: CountriesViewHolder, position: Int) = holder.bind(finalList!!.get(position))
 
     inner class CountriesViewHolder(private val binding: CountriesItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(country: Country) {

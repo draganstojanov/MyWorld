@@ -1,3 +1,7 @@
 package com.andraganoid.myworld.model
 
-data class Response(val country: Country? = null, val countries: List<Country>? = null)
+data class Response(
+    val country: Country? = null,
+    var countries: List<Country>? = null,
+    var isSucces: Boolean? = null
+)
