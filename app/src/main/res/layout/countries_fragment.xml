@@ -7,8 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".countries.CountriesFragment">
 
-
     <androidx.viewpager2.widget.ViewPager2
+        android:background="@color/colorPrimary"
         android:id="@+id/countriesFragmentViewPager"
         android:layout_width="match_parent"
         android:layout_height="@dimen/countries_fragment_viewpager_height"
@@ -24,9 +24,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/countriesRecView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/countriesFragmentSearchEt"
+        app:spanCount="2"
         tools:listitem="@layout/countries_item" />
 
 

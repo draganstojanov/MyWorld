@@ -15,7 +15,7 @@ class CountriesFragment : Fragment() {
     private var _binding: CountriesFragmentBinding? = null
     private val binding get() = _binding!!
     private val viewModel: CountriesViewModel by viewModel()
-    private val adapter: CountriesFragmentAdapter = CountriesFragmentAdapter()
+    private lateinit var adapter: CountriesFragmentAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = CountriesFragmentBinding.inflate(inflater, container, false)
@@ -24,6 +24,7 @@ class CountriesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        adapter=CountriesFragmentAdapter(activity!!)
         binding.countriesRecView.adapter = adapter
         viewModel.countries.observe(viewLifecycleOwner, Observer { countries ->
             adapter.filteredList = countries
