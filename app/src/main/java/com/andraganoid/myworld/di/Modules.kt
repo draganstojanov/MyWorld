@@ -3,7 +3,9 @@ package com.andraganoid.memoryfields.di
 
 import com.andraganoid.myworld.api.CountriesNetworkService
 import com.andraganoid.myworld.countries.CountriesViewModel
+import com.andraganoid.myworld.country.CountryViewModel
 import com.andraganoid.myworld.repo.CountriesRepository
+import com.andraganoid.myworld.utils.Preferences
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -12,10 +14,12 @@ object Modules {
 
     private val viewModelModule = module {
         viewModel { CountriesViewModel(get()) }
+        viewModel { CountryViewModel(get() ) }
     }
 
     private val singleModule = module {
-        single { CountriesRepository(get()) }
+        single { CountriesRepository(get(), get()) }
+        single { Preferences() }
     }
 
     private val factoryModule = module {

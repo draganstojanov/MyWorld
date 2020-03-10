@@ -9,5 +9,20 @@
         android:id="@+id/countriesFragment"
         android:name="com.andraganoid.myworld.countries.CountriesFragment"
         android:label="countries_fragment"
-        tools:layout="@layout/countries_fragment" />
+        tools:layout="@layout/countries_fragment" >
+        <action
+            android:id="@+id/action_countriesFragment_to_countryFragment"
+            app:destination="@id/countryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/countryFragment"
+        android:name="com.andraganoid.myworld.country.CountryFragment"
+        android:label="country_fragment"
+        tools:layout="@layout/country_fragment" >
+        <argument
+            android:name="country_name"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue='""' />
+    </fragment>
 </navigation>

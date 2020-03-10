@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.andraganoid.myworld.countries.viewpager.CountriesViewPagerAdapter
 import com.andraganoid.myworld.databinding.CountriesFragmentBinding
 import com.andraganoid.myworld.utils.ALL
 import com.andraganoid.myworld.utils.OTHER
+import com.andraganoid.myworld.utils.hideKeyboard
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
@@ -33,11 +35,15 @@ class CountriesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewPager = binding.countriesFragmentViewPager
-        countriesAdapter = CountriesFragmentAdapter(activity!!)
+        countriesAdapter = CountriesFragmentAdapter(this)
         binding.countriesRecView.adapter = countriesAdapter
         setObservers()
         regionSelector()
         searchListener()
+        binding.countriesFragmentKeyboardBtn.setOnClickListener { view ->
+            hideKeyboard(context!!, view)
+
+        }
     }
 
     private fun setObservers() {
@@ -75,6 +81,12 @@ class CountriesFragment : Fragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
+    }
+
+    fun onCountryClick(name: String?) {
+        val action = CountriesFragmentDirections.actionCountriesFragmentToCountryFragment()
+        action.countryName = name
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {
