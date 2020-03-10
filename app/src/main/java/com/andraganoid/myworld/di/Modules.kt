@@ -14,7 +14,7 @@ object Modules {
 
     private val viewModelModule = module {
         viewModel { CountriesViewModel(get()) }
-        viewModel { CountryViewModel(get() ) }
+        viewModel { CountryViewModel(get()) }
     }
 
     private val singleModule = module {

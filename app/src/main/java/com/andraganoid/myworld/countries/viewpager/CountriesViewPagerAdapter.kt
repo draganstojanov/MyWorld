@@ -3,7 +3,7 @@ package com.andraganoid.myworld.countries.viewpager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.andraganoid.myworld.utils.ARG_REGION
+import com.andraganoid.myworld.utils.ARGS_REGION
 
 class CountriesViewPagerAdapter(fragment: Fragment, private val regionList: List<String>) : FragmentStateAdapter(fragment) {
 
@@ -12,7 +12,7 @@ class CountriesViewPagerAdapter(fragment: Fragment, private val regionList: List
     override fun createFragment(position: Int): Fragment {
         val fragment = CountriesViewPagerFragment()
         fragment.arguments = Bundle().apply {
-            putString(ARG_REGION, regionList.get(position))
+            putString(ARGS_REGION, regionList.get(position))
         }
         return fragment
     }

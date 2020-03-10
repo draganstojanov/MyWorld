@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.andraganoid.myworld.databinding.CountryFragmentBinding
 import com.andraganoid.myworld.model.Country
-import com.andraganoid.myworld.utils.ARG_COUNTRY_NAME
+import com.andraganoid.myworld.utils.ARGS_COUNTRY_NAME
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class CountryFragment : Fragment() {
@@ -26,8 +26,8 @@ class CountryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setObservers()
-        arguments?.takeIf { it.containsKey(ARG_COUNTRY_NAME) }?.apply {
-            viewModel.getCountry(getString(ARG_COUNTRY_NAME).toString())
+        arguments?.takeIf { it.containsKey(ARGS_COUNTRY_NAME) }?.apply {
+            viewModel.getCountry(getString(ARGS_COUNTRY_NAME).toString())
         }
 
     }

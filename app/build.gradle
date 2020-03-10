@@ -41,8 +41,6 @@ android {
 def koin_version = "2.0.1"
 def retrofit_ver = "2.7.1"
 def room_ver = "2.2.4"
-def glide_ver = "4.11.0"
-//def dagger_ver = "2.26"
 
 dependencies {
     // Kotlin
@@ -59,9 +57,6 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_ver"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_ver"
     implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
-
-    // Gson
-    //  implementation 'com.google.code.gson:gson:2.8.6'
 
     // AndroidX
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -84,20 +79,7 @@ dependencies {
     implementation "org.koin:koin-android:$koin_version"
     implementation "org.koin:koin-android-viewmodel:$koin_version"
 
-//    // Dagger
-//    implementation "com.google.dagger:dagger:$dagger_ver"
-//   // annotationProcessor "com.google.dagger:dagger-compiler:$dagger_ver"
-//    kapt "com.google.dagger:dagger-compiler:$dagger_ver"
-//   // kapt "com.google.dagger:dagger-android-processor:$dagger_ver"
-
-    // Coil
-//    implementation("io.coil-kt:coil:0.9.5")
-//    implementation("io.coil-kt:coil-svg:0.9.5")
-
-    //Glide
-//        implementation "com.github.bumptech.glide:glide:$glide_ver"
-//        annotationProcessor "com.github.bumptech.glide:compiler:$glide_ver"
-
+    // GlideToVectorYou
     implementation 'com.github.corouteam:GlideToVectorYou:v2.0.0'
 
     // Testing

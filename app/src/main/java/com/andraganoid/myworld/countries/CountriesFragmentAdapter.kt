@@ -1,7 +1,6 @@
 package com.andraganoid.myworld.countries
 
 import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -23,7 +22,6 @@ class CountriesFragmentAdapter(private val fragment: CountriesFragment) :
         set(value) {
             field = value
             finalListSet(filteredList)
-            // notifyDataSetChanged()
         }
 
     fun searchFilter(search: String) {
@@ -34,10 +32,8 @@ class CountriesFragmentAdapter(private val fragment: CountriesFragment) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountriesViewHolder {
-
         val binding = CountriesItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CountriesViewHolder(binding)
-
     }
 
     override fun getItemCount(): Int = finalList!!.size
@@ -49,9 +45,7 @@ class CountriesFragmentAdapter(private val fragment: CountriesFragment) :
             binding.countriesItemNameTv.text = country.name
             binding.countriesItemNativeNameTv.text = country.nativeName
             GlideToVectorYou.justLoadImage(fragment.activity, Uri.parse(country.flag), binding.countriesItemFlagIv)
-            binding.root.setOnClickListener{
-               fragment.onCountryClick(finalList?.get(adapterPosition)?.name)
-            }
+            binding.root.setOnClickListener { fragment.onCountryClick(finalList?.get(adapterPosition)?.name) }
         }
     }
 

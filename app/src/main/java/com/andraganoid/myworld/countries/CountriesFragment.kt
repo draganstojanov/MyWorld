@@ -94,5 +94,4 @@ class CountriesFragment : Fragment() {
         _binding = null
     }
 
-
 }

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.andraganoid.myworld.databinding.CountriesViewPagerFragmentBinding
-import com.andraganoid.myworld.utils.ARG_REGION
+import com.andraganoid.myworld.utils.ARGS_REGION
 
 class CountriesViewPagerFragment : Fragment() {
 
@@ -20,8 +20,8 @@ class CountriesViewPagerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.takeIf { it.containsKey(ARG_REGION) }?.apply {
-            binding.countriesViewPagerFragmentRegionTv.text = getString(ARG_REGION)
+        arguments?.takeIf { it.containsKey(ARGS_REGION) }?.apply {
+            binding.countriesViewPagerFragmentRegionTv.text = getString(ARGS_REGION)
         }
     }
 
