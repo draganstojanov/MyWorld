@@ -15,8 +15,7 @@ import java.util.*
 class CountriesViewModel(private val countriesRepository: CountriesRepository) : ViewModel() {
 
     private val _countries = MutableLiveData<List<Country>>()
-    val countries: LiveData<List<Country>>
-        get() = _countries
+    val countries: LiveData<List<Country>> get() = _countries
     var regions: ArrayList<String>? = null
 
     init {

@@ -42,8 +42,7 @@ class CountriesFragmentAdapter(private val fragment: CountriesFragment) :
 
     inner class CountriesViewHolder(private val binding: CountriesItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(country: Country) {
-            binding.countriesItemNameTv.text = country.name
-            binding.countriesItemNativeNameTv.text = country.nativeName
+            binding.country = country
             GlideToVectorYou.justLoadImage(fragment.activity, Uri.parse(country.flag), binding.countriesItemFlagIv)
             binding.root.setOnClickListener { fragment.onCountryClick(finalList?.get(adapterPosition)?.name) }
         }

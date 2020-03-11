@@ -5,4 +5,6 @@
     <dimen name="countries_item_height">192dp</dimen>
     <dimen name="country_native_name_text_size">24sp</dimen>
     <dimen name="country_name_text_size">16sp</dimen>
+    <dimen name="country_native_name_text_size_large">32sp</dimen>
+    <dimen name="country_name_text_size_large">20sp</dimen>
 </resources>

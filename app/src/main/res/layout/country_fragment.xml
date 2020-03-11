@@ -1,13 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".country.CountryFragment">
 
-    <TextView
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="country"
+            type="com.andraganoid.myworld.model.Country" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        tools:context=".country.CountryFragment">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/countryFragmentNativeNameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#cdcdcd"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:text="@{country.nativeName}"
+            android:textSize="@dimen/country_native_name_text_size_large"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/countryFragmentNameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#cdcdcd"
+            android:gravity="start"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:text="@{country.name}"
+            android:textSize="@dimen/country_name_text_size_large"
+            app:layout_constraintTop_toBottomOf="@id/countryFragmentNativeNameTv" />
+
+        <ImageView
+            android:id="@+id/countryFragmentFlagIv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="256sp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:alpha=".05"
+            app:layout_constraintTop_toBottomOf="@id/countryFragmentNameTv" />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="0dp"
+            android:src="@mipmap/ic_launcher_round"
+            app:layout_constraintBottom_toBottomOf="@id/countryFragmentNameTv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

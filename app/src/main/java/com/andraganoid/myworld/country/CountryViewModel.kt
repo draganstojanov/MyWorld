@@ -9,17 +9,10 @@ import com.andraganoid.myworld.utils.Preferences
 class CountryViewModel(private val preferences: Preferences) : ViewModel() {
 
     private val _country = MutableLiveData<Country>()
-
-    val country: LiveData<Country>
-        get() = _country
-
+    val country: LiveData<Country> get() = _country
     private var countries: List<Country>? = null
-
     private val _borders = MutableLiveData<List<Country>>()
-
-    val borders: LiveData<List<Country>>
-        get() = _borders
-
+    val borders: LiveData<List<Country>> get() = _borders
 
     fun getCountry(name: String) {
         countries = preferences.getAllCountries()

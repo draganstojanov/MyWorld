@@ -1,5 +1,6 @@
 package com.andraganoid.myworld.country
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,16 +11,17 @@ import androidx.lifecycle.Observer
 import com.andraganoid.myworld.databinding.CountryFragmentBinding
 import com.andraganoid.myworld.model.Country
 import com.andraganoid.myworld.utils.ARGS_COUNTRY_NAME
-import org.koin.android.viewmodel.ext.android.viewModel
+import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
+import kotlinx.android.synthetic.main.country_fragment.*
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 
 class CountryFragment : Fragment() {
 
-    private var _binding: CountryFragmentBinding? = null
-    private val binding get() = _binding!!
-    private val viewModel: CountryViewModel by viewModel()
+    private lateinit var binding: CountryFragmentBinding
+    private val viewModel: CountryViewModel by sharedViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = CountryFragmentBinding.inflate(inflater, container, false)
+        binding = CountryFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -29,12 +31,15 @@ class CountryFragment : Fragment() {
         arguments?.takeIf { it.containsKey(ARGS_COUNTRY_NAME) }?.apply {
             viewModel.getCountry(getString(ARGS_COUNTRY_NAME).toString())
         }
-
     }
 
     private fun setObservers() {
-        viewModel.country.observe(viewLifecycleOwner, Observer {
-            showData(it)
+        viewModel.country.observe(viewLifecycleOwner, Observer { country ->
+
+
+            if (country != null) {
+                showData(country)
+            }
         })
         viewModel.borders.observe(viewLifecycleOwner, Observer {
             showBorders(it)
@@ -42,11 +47,13 @@ class CountryFragment : Fragment() {
     }
 
     private fun showData(country: Country) {
-        Toast.makeText(activity, country.name, Toast.LENGTH_SHORT).show()
+        binding.country = viewModel.country.value
+        GlideToVectorYou.justLoadImage(activity, Uri.parse(country.flag), countryFragmentFlagIv)
     }
 
     private fun showBorders(borders: List<Country>) {
         Toast.makeText(activity, borders.size.toString(), Toast.LENGTH_SHORT).show()
     }
+
 
 }
