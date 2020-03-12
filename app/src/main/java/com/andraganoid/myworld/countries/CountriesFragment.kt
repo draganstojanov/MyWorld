@@ -3,6 +3,7 @@ package com.andraganoid.myworld.countries
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +23,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class CountriesFragment : Fragment() {
 
     private val viewModel: CountriesViewModel by viewModel()
-    private lateinit var countriesAdapter: CountriesFragmentAdapter
+    private lateinit var countriesAdapter: CountriesAdapter
     private lateinit var viewPager: ViewPager2
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
@@ -31,7 +32,7 @@ class CountriesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewPager = countriesFragmentViewPager
-        countriesAdapter = CountriesFragmentAdapter(this)
+        countriesAdapter = CountriesAdapter(this)
         countriesRecView.adapter = countriesAdapter
         setObservers()
         regionSelector()
@@ -43,6 +44,37 @@ class CountriesFragment : Fragment() {
 
     private fun setObservers() {
         viewModel.countries.observe(viewLifecycleOwner, Observer { countries ->
+
+            val counter1 = arrayListOf<Int>(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+            val counter2 = arrayListOf<Int>(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+            val x9 = 0
+            val x10 = 0
+            countries.forEach { country ->
+
+                Log.d("CCOUNTT", country.name+"***"+country.callingCodes+"***"+country.numericCode+"***"+country.topLevelDomain)
+
+
+
+            ///    val c1 = country.borders!!.size
+            //    counter1[c1]++
+//                if (c1 == 9) {
+//                    Log.d("CCOUNTT=x1", country.currencies.toString())
+//                }
+            //    val c2 = country.regionalBlocs!!.size
+           //     counter2[c2]++
+//                if (c2 == 10) {
+//                    Log.d("CCOUNTT=x2", country.languages.toString())
+//                }
+            }
+//            Log.d("CCOUNTT=1", counter1.toString())
+//            Log.d("CCOUNTT=2", counter2.toString())
+
+
+
+
+
+
+
             countriesAdapter.filteredList = countries
             viewPager.adapter = RegionsAdapter(this, viewModel.regions!!)
         })
@@ -52,6 +84,8 @@ class CountriesFragment : Fragment() {
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
+                countriesFragmentSearchEt.text.clear()
+                countriesFragmentKeyboardBtn.performClick()
                 val countries = viewModel.countries.value
                 val filter = viewModel.regions?.get(position)
                 countriesAdapter.filteredList = when (filter) {

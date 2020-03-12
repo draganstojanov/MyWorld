@@ -39,22 +39,72 @@
             app:layout_constraintTop_toBottomOf="@id/countryFragmentNativeNameTv" />
 
         <ImageView
-            android:id="@+id/countryFragmentFlagIv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxHeight="256sp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:alpha=".05"
-            app:layout_constraintTop_toBottomOf="@id/countryFragmentNameTv" />
-
-        <ImageView
             android:layout_width="32dp"
             android:layout_height="0dp"
             android:src="@mipmap/ic_launcher_round"
             app:layout_constraintBottom_toBottomOf="@id/countryFragmentNameTv"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/countryFragmentFlagIv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxHeight="64dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/countryFragmentNameTv" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/countryInfoTabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMode="scrollable"
+            app:layout_constraintTop_toBottomOf="@id/countryFragmentFlagIv" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/countryInfoVp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/countryInfoTabs" />
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/labelCountryCodes"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:textSize="12sp"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/countryFragmentFlagIv" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/countryFragmentCountryCodesTv"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/labelCountryCodes"/>-->
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/countryFragmenAlpha2Code"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="@{country.alpha2Code}"-->
+        <!--            android:textSize="@dimen/country_native_name_text_size_large"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="@id/countryFragmenAlpha3Code"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/countryFragmentNameTv" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/countryFragmenAlpha3Code"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="@{country.alpha3Code}"-->
+        <!--            android:textSize="@dimen/country_native_name_text_size_large"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/countryFragmenAlpha2Code" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

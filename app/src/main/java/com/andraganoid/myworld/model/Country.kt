@@ -1,5 +1,7 @@
 package com.andraganoid.myworld.model
 
+import java.io.Serializable
+
 data class Country(
 	val area: Float? = null,
 	val nativeName: String? = null,
@@ -25,4 +27,4 @@ data class Country(
 	val region: String? = null,
 	val latlng: List<Float?>? = null,
 	val currencies: List<CurrenciesItem?>? = null
-)
+):Serializable

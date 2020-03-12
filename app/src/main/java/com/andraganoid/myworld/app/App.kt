@@ -9,7 +9,7 @@ import org.koin.core.context.startKoin
 class App : Application() {
 
     companion object {
-        lateinit var appContext: App
+        lateinit var appContext: App//TODO zameni sa Koin Context
     }
 
     override fun onCreate() {
@@ -22,3 +22,10 @@ class App : Application() {
         }
     }
 }
+
+
+
+////startKoin here
+//Koin.logger = if (isDebugMode())
+//org.koin.android.logger.AndroidLogger() else
+//org.koin.log.EmptyLogger()

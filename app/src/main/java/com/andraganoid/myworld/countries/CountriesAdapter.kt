@@ -8,8 +8,8 @@ import com.andraganoid.myworld.databinding.CountriesItemBinding
 import com.andraganoid.myworld.model.Country
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 
-class CountriesFragmentAdapter(private val fragment: CountriesFragment) :
-    RecyclerView.Adapter<CountriesFragmentAdapter.CountriesViewHolder>() {
+class CountriesAdapter(private val fragment: CountriesFragment) :
+    RecyclerView.Adapter<CountriesAdapter.CountriesViewHolder>() {
     var finalList: ArrayList<Country>? = arrayListOf()
 
     private fun finalListSet(fList: List<Country>?) {
