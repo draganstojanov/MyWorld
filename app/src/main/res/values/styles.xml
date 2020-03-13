@@ -8,4 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="infoLabelStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/label_text_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="infoTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/info_text_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
 </resources>

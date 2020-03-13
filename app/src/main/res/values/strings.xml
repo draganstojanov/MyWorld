@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">MyWorld</string>
     <string name="search">search</string>
+    <string name="capitol">Capitol</string>
+    <string name="region">Region</string>
+    <string name="subregion">Subregion</string>
+    <string name="population">Population</string>
+    <string name="area">Area</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="no_data">No data</string>
+    <string name="country_code_2">2-letter country code</string>
+    <string name="country_code_3">3-letter country code</string>
+    <string name="domain">Top level domain</string>
+    <string name="country_code">Country code</string>
+    <string name="time_zones">Time zones</string>
 </resources>

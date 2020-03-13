@@ -1,13 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".country.codes.CodesFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
 
-</FrameLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelCode2"
+                style="@style/infoLabelStyle"
+                android:text="@string/country_code_2" />
+
+            <TextView
+                android:id="@+id/codesCode2Tv"
+                style="@style/infoTextStyle" />
+
+            <TextView
+                android:id="@+id/labelCode3"
+                style="@style/infoLabelStyle"
+                android:text="@string/country_code_3" />
+
+            <TextView
+                android:id="@+id/codesCode3Tv"
+                style="@style/infoTextStyle" />
+
+            <TextView
+                android:id="@+id/labelDomain"
+                style="@style/infoLabelStyle"
+                android:text="@string/domain" />
+
+            <TextView
+                android:id="@+id/codesDomainTv"
+                style="@style/infoTextStyle" />
+
+            <TextView
+                android:id="@+id/labelCode"
+                style="@style/infoLabelStyle"
+                android:text="@string/country_code" />
+
+            <TextView
+                android:id="@+id/codesCodeTv"
+                style="@style/infoTextStyle" />
+
+            <TextView
+                android:id="@+id/labelTimezones"
+                style="@style/infoLabelStyle"
+                android:text="@string/time_zones" />
+
+            <TextView
+                android:id="@+id/codesTimezonesTv"
+                style="@style/infoTextStyle" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

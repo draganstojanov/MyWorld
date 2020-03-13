@@ -45,14 +45,14 @@ class CountriesFragment : Fragment() {
     private fun setObservers() {
         viewModel.countries.observe(viewLifecycleOwner, Observer { countries ->
 
-            val counter1 = arrayListOf<Int>(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-            val counter2 = arrayListOf<Int>(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-            val x9 = 0
-            val x10 = 0
-            countries.forEach { country ->
-
-                Log.d("CCOUNTT", country.name+"***"+country.callingCodes+"***"+country.numericCode+"***"+country.topLevelDomain)
-
+//            val counter1 = arrayListOf<Int>(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+//            val counter2 = arrayListOf<Int>(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+//            val x9 = 0
+//            val x10 = 0
+//            countries.forEach { country ->
+//
+//                Log.d("CCOUNTT", country.name+"***"+country.callingCodes+"***"+country.numericCode+"***"+country.topLevelDomain)
+//
 
 
             ///    val c1 = country.borders!!.size
@@ -65,7 +65,7 @@ class CountriesFragment : Fragment() {
 //                if (c2 == 10) {
 //                    Log.d("CCOUNTT=x2", country.languages.toString())
 //                }
-            }
+//            }
 //            Log.d("CCOUNTT=1", counter1.toString())
 //            Log.d("CCOUNTT=2", counter2.toString())
 
@@ -113,6 +113,7 @@ class CountriesFragment : Fragment() {
     }
 
     fun onCountryClick(name: String?) {
+        hideKeyboard(context!!,view!!)
         val action = CountriesFragmentDirections.actionCountriesFragmentToCountryFragment()
         action.countryName = name
         findNavController().navigate(action)

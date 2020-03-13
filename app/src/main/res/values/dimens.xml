@@ -7,4 +7,7 @@
     <dimen name="country_name_text_size">16sp</dimen>
     <dimen name="country_native_name_text_size_large">32sp</dimen>
     <dimen name="country_name_text_size_large">20sp</dimen>
+    <dimen name="label_text_size">12sp</dimen>
+    <dimen name="info_text_size">20sp</dimen>
+
 </resources>

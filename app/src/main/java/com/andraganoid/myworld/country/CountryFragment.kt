@@ -29,8 +29,6 @@ class CountryFragment : Fragment() {
     private val countryInfoList = arrayListOf<Fragment>(
         GeneralFragment(), CodesFragment(), BordersFragment(), CurrencyFragment(), LanguageFragment(), RegionalFragment()
     )
-    private lateinit var countryAdapter: CountryAdapter
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = CountryFragmentBinding.inflate(inflater, container, false)
@@ -78,11 +76,5 @@ class CountryFragment : Fragment() {
         Toast.makeText(activity, borders.size.toString(), Toast.LENGTH_SHORT).show()
     }
 
-
-//    viewPager.adapter = SignUpAdapter(this)
-//
-//    TabLayoutMediator(tabs, viewPager) { tab, position ->
-//        tab.text = tabTitle.get(position)
-//    }.attach()
 
 }
