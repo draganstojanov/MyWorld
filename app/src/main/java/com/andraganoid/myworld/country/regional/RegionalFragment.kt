@@ -8,26 +8,21 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.andraganoid.myworld.R
+import com.andraganoid.myworld.model.Country
+import com.andraganoid.myworld.utils.ARGS_COUNTRY
+import kotlinx.android.synthetic.main.regional_fragment.*
 
 class RegionalFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = RegionalFragment()
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
+        inflater.inflate(R.layout.regional_fragment, container, false)
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        regionalRecView.adapter = RegionalAdapter((arguments?.getSerializable(ARGS_COUNTRY) as Country).regionalBlocs)
     }
 
-    private lateinit var viewModel: RegionalViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.regional_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(RegionalViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

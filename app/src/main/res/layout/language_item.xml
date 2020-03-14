@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="languageItem"
+            type="com.andraganoid.myworld.model.LanguagesItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:background="@color/colorAccent">
+
+        <TextView
+            android:id="@+id/languageItemIso6391Tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:gravity="center"
+            android:text="@{languageItem.iso639_1}"
+            android:textSize="@dimen/country_native_name_text_size"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/languageItemIso6392Tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:gravity="center"
+            android:text="@{languageItem.iso639_2}"
+            android:textSize="@dimen/country_native_name_text_size"
+            app:layout_constraintStart_toEndOf="@id/languageItemIso6391Tv" />
+
+        <TextView
+            android:id="@+id/languageItemNativeNameTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@{languageItem.nativeName}"
+            android:textSize="@dimen/country_native_name_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/languageItemIso6392Tv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/languageItemNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@{languageItem.name}"
+            android:textSize="@dimen/country_name_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/languageItemIso6392Tv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

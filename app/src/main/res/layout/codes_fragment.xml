@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".country.codes.CodesFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+
+        <variable
+            name="country"
+            type="com.andraganoid.myworld.model.Country" />
+    </data>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,7 +29,8 @@
 
             <TextView
                 android:id="@+id/codesCode2Tv"
-                style="@style/infoTextStyle" />
+                style="@style/infoTextStyle"
+                android:text="@{country.alpha2Code}" />
 
             <TextView
                 android:id="@+id/labelCode3"
@@ -32,7 +39,8 @@
 
             <TextView
                 android:id="@+id/codesCode3Tv"
-                style="@style/infoTextStyle" />
+                style="@style/infoTextStyle"
+                android:text="@{country.alpha3Code}" />
 
             <TextView
                 android:id="@+id/labelDomain"
@@ -41,7 +49,8 @@
 
             <TextView
                 android:id="@+id/codesDomainTv"
-                style="@style/infoTextStyle" />
+                style="@style/infoTextStyle"
+                stringFromArray="@{country.topLevelDomain}" />
 
             <TextView
                 android:id="@+id/labelCode"
@@ -50,7 +59,8 @@
 
             <TextView
                 android:id="@+id/codesCodeTv"
-                style="@style/infoTextStyle" />
+                style="@style/infoTextStyle"
+                stringFromArray="@{country.callingCodes}" />
 
             <TextView
                 android:id="@+id/labelTimezones"
@@ -59,9 +69,11 @@
 
             <TextView
                 android:id="@+id/codesTimezonesTv"
-                style="@style/infoTextStyle" />
+                style="@style/infoTextStyle"
+                stringFromArray="@{country.timezones}" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-</LinearLayout>
+</layout>
+

@@ -12,7 +12,8 @@
         tools:layout="@layout/countries_fragment" >
         <action
             android:id="@+id/action_countriesFragment_to_countryFragment"
-            app:destination="@id/countryFragment" />
+            app:destination="@id/countryFragment"
+            app:launchSingleTop="true"/>
     </fragment>
     <fragment
         android:id="@+id/countryFragment"
@@ -20,9 +21,9 @@
         android:label="country_fragment"
         tools:layout="@layout/country_fragment" >
         <argument
-            android:name="country_name"
-            app:argType="string"
+            android:name="country"
+            app:argType="com.andraganoid.myworld.model.Country"
             app:nullable="true"
-            android:defaultValue='""' />
+            android:defaultValue="@null" />
     </fragment>
 </navigation>

@@ -44,7 +44,7 @@ class CountriesAdapter(private val fragment: CountriesFragment) :
         fun bind(country: Country) {
             binding.country = country
             GlideToVectorYou.justLoadImage(fragment.activity, Uri.parse(country.flag), binding.countriesItemFlagIv)
-            binding.root.setOnClickListener { fragment.onCountryClick(finalList?.get(adapterPosition)?.name) }
+            binding.root.setOnClickListener { fragment.onCountryClick(finalList?.get(adapterPosition)) }
         }
     }
 

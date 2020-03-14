@@ -4,6 +4,7 @@ package com.andraganoid.memoryfields.di
 import com.andraganoid.myworld.api.CountriesNetworkService
 import com.andraganoid.myworld.countries.CountriesViewModel
 import com.andraganoid.myworld.country.CountryViewModel
+import com.andraganoid.myworld.country.borders.BordersViewModel
 import com.andraganoid.myworld.repo.CountriesRepository
 import com.andraganoid.myworld.utils.Preferences
 import org.koin.android.viewmodel.dsl.viewModel
@@ -14,7 +15,7 @@ object Modules {
 
     private val viewModelModule = module {
         viewModel { CountriesViewModel(get()) }
-        viewModel { CountryViewModel(get()) }
+        viewModel { BordersViewModel(get()) }
     }
 
     private val singleModule = module {

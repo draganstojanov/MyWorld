@@ -3,7 +3,6 @@ package com.andraganoid.myworld.countries
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.andraganoid.myworld.R
 import com.andraganoid.myworld.countries.regions.RegionsAdapter
+import com.andraganoid.myworld.model.Country
 import com.andraganoid.myworld.utils.ALL
 import com.andraganoid.myworld.utils.OTHER
 import com.andraganoid.myworld.utils.hideKeyboard
@@ -37,44 +37,13 @@ class CountriesFragment : Fragment() {
         setObservers()
         regionSelector()
         searchListener()
-        countriesFragmentKeyboardBtn.setOnClickListener { view ->
-            hideKeyboard(context!!, view)
+        countriesFragmentKeyboardBtn.setOnClickListener { mView ->
+            hideKeyboard(context!!, mView)
         }
     }
 
     private fun setObservers() {
         viewModel.countries.observe(viewLifecycleOwner, Observer { countries ->
-
-//            val counter1 = arrayListOf<Int>(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-//            val counter2 = arrayListOf<Int>(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-//            val x9 = 0
-//            val x10 = 0
-//            countries.forEach { country ->
-//
-//                Log.d("CCOUNTT", country.name+"***"+country.callingCodes+"***"+country.numericCode+"***"+country.topLevelDomain)
-//
-
-
-            ///    val c1 = country.borders!!.size
-            //    counter1[c1]++
-//                if (c1 == 9) {
-//                    Log.d("CCOUNTT=x1", country.currencies.toString())
-//                }
-            //    val c2 = country.regionalBlocs!!.size
-           //     counter2[c2]++
-//                if (c2 == 10) {
-//                    Log.d("CCOUNTT=x2", country.languages.toString())
-//                }
-//            }
-//            Log.d("CCOUNTT=1", counter1.toString())
-//            Log.d("CCOUNTT=2", counter2.toString())
-
-
-
-
-
-
-
             countriesAdapter.filteredList = countries
             viewPager.adapter = RegionsAdapter(this, viewModel.regions!!)
         })
@@ -112,10 +81,10 @@ class CountriesFragment : Fragment() {
         })
     }
 
-    fun onCountryClick(name: String?) {
+    fun onCountryClick(country: Country?) {
         hideKeyboard(context!!,view!!)
         val action = CountriesFragmentDirections.actionCountriesFragmentToCountryFragment()
-        action.countryName = name
+        action.country = country
         findNavController().navigate(action)
     }
 
