@@ -29,21 +29,21 @@ class CountryViewModel(private val preferences: Preferences) : ViewModel() {
 //    }
 
 
-    private var countries: List<Country>? = null
-    private val _borders = MutableLiveData<List<Country>>()
-    val borders: LiveData<List<Country>> get() = _borders
-
-    init {
-        countries = preferences.getAllCountries()
-    }
-
-
-    internal fun getBorders(country: Country) {
-        val mBorders = arrayListOf<Country>()
-        country.borders?.forEach { border ->
-            mBorders.add(countries!!.filter { country -> country.alpha3Code.equals(border) }.get(0))
-        }
-        _borders.value = mBorders
-    }
+//    private var countries: List<Country>? = null
+//    private val _borders = MutableLiveData<List<Country>>()
+//    val borders: LiveData<List<Country>> get() = _borders
+//
+//    init {
+//        countries = preferences.getAllCountries()
+//    }
+//
+//
+//    internal fun getBorders(country: Country) {
+//        val mBorders = arrayListOf<Country>()
+//        country.borders?.forEach { border ->
+//            mBorders.add(countries!!.filter { country -> country.alpha3Code.equals(border) }.get(0))
+//        }
+//        _borders.value = mBorders
+//    }
 
 }
