@@ -18,6 +18,7 @@ import com.andraganoid.myworld.utils.OTHER
 import com.andraganoid.myworld.utils.hideKeyboard
 import kotlinx.android.synthetic.main.countries_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.math.BigDecimal
 
 
 class CountriesFragment : Fragment() {

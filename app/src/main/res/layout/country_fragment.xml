@@ -14,6 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/app_background"
         tools:context=".country.CountryFragment">
 
         <TextView
@@ -23,6 +24,9 @@
             android:background="#cdcdcd"
             android:paddingStart="32dp"
             android:paddingEnd="32dp"
+            android:gravity="center"
+            android:fontFamily="@font/catamaran_extrabold"
+            android:textStyle="bold"
             android:text="@{country.nativeName}"
             android:textSize="@dimen/country_native_name_text_size_large"
             app:layout_constraintTop_toTopOf="parent" />

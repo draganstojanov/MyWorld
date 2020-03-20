@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -9,18 +10,17 @@
             type="com.andraganoid.myworld.model.Country" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:background="@color/colorAccent">
+        android:layout_margin="4dp"
+        android:padding="2dp"
+        android:background="@color/liteBlue">
 
         <ImageView
             android:id="@+id/countriesItemFlagIv"
             android:layout_width="wrap_content"
             android:layout_height="64dp"
-            android:layout_margin="4dp"
             android:scaleType="fitStart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:text="@{country.nativeName}"
             android:textSize="@dimen/country_native_name_text_size"
+            android:textColor="@color/darkBlue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/countriesItemFlagIv" />
@@ -41,6 +42,7 @@
             android:layout_height="wrap_content"
             android:text="@{country.name}"
             android:textSize="@dimen/country_name_text_size"
+            android:textColor="@color/darkBlue"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/countriesItemNativeNameTv" />
 
