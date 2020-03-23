@@ -14,4 +14,7 @@
     <string name="domain">Top level domain</string>
     <string name="country_code">Country code</string>
     <string name="time_zones">Time zones</string>
+    <string name="currency_name">Name</string>
+    <string name="currency_code">Code</string>
+    <string name="currency_symbol">Symbol</string>
 </resources>

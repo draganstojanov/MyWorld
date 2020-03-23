@@ -18,9 +18,9 @@ class CurrencyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-      //  arguments?.takeIf { it.containsKey(ARGS_COUNTRY) }?.apply {
+        arguments?.takeIf { it.containsKey(ARGS_COUNTRY) }?.apply {
             currencyRecView.adapter = CurrencyAdapter((arguments?.getSerializable(ARGS_COUNTRY) as Country).currencies)
-      //  }
+        }
     }
 
 }

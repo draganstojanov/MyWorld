@@ -21,24 +21,28 @@
             android:id="@+id/countryFragmentNativeNameTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#cdcdcd"
             android:paddingStart="32dp"
             android:paddingEnd="32dp"
             android:gravity="center"
+            android:background="@color/darkBlue"
             android:fontFamily="@font/catamaran_extrabold"
             android:textStyle="bold"
+            android:textColor="@android:color/white"
             android:text="@{country.nativeName}"
             android:textSize="@dimen/country_native_name_text_size_large"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingVertical="8dp"/>
 
         <TextView
             android:id="@+id/countryFragmentNameTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#cdcdcd"
-            android:gravity="start"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:background="@color/darkBlue"
             android:paddingStart="32dp"
             android:paddingEnd="32dp"
+            android:paddingBottom="8dp"
             android:text="@{country.name}"
             android:textSize="@dimen/country_name_text_size_large"
             app:layout_constraintTop_toBottomOf="@id/countryFragmentNativeNameTv" />
@@ -47,7 +51,8 @@
             android:id="@+id/backBtn"
             android:layout_width="32dp"
             android:layout_height="0dp"
-            android:src="@mipmap/ic_launcher_round"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@color/liteBlue"
             app:layout_constraintBottom_toBottomOf="@id/countryFragmentNameTv"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -55,9 +60,9 @@
         <ImageView
             android:id="@+id/countryFragmentFlagIv"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="64dp"
             android:adjustViewBounds="true"
-            android:maxHeight="64dp"
+          android:layout_marginTop="16dp"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,6 +72,9 @@
             android:id="@+id/countryInfoTabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:tabTextColor="@color/darkBlue"
+            app:tabIndicatorColor="@color/darkBlue"
             app:layout_constraintTop_toBottomOf="@id/countryFragmentFlagIv"
             app:tabMode="scrollable" />
 
@@ -74,6 +82,7 @@
             android:id="@+id/countryInfoVp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/countryInfoTabs" />
 

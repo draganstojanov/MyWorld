@@ -22,75 +22,133 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/labelCapitol"
-                style="@style/infoLabelStyle"
-                android:text="@string/capitol" />
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/generalCapitolTv"
-                style="@style/infoTextStyle"
-                android:text="@{country.capital}" />
+                <TextView
+                    android:id="@+id/labelCapitol"
+                    style="@style/infoLabelStyle"
+                    android:text="@string/capitol"
+                    android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/labelRegion"
-                style="@style/infoLabelStyle"
-                android:text="@string/region" />
+                <TextView
+                    android:layout_weight="2"
+                    android:id="@+id/generalCapitolTv"
+                    style="@style/infoTextStyle"
+                    android:text="@{country.capital}" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/generalRegionTv"
-                style="@style/infoTextStyle"
-                android:text="@{country.region}" />
+                <TextView
+                    android:id="@+id/labelRegion"
+                    style="@style/infoLabelStyle"
+                    android:text="@string/region"
+                    android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/labelSubregion"
-                style="@style/infoLabelStyle"
-                android:text="@string/subregion" />
+                <TextView
+                    android:id="@+id/generalRegionTv"
+                    android:layout_weight="2"
+                    style="@style/infoTextStyle"
+                    android:text="@{country.region}" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/generalSubregionTv"
-                style="@style/infoTextStyle"
-                android:text="@{country.subregion}" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/labelPopulation"
-                style="@style/infoLabelStyle"
-                android:text="@string/population" />
+                <TextView
+                    android:id="@+id/labelSubregion"
+                    style="@style/infoLabelStyle"
+                    android:text="@string/subregion"
+                    android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/generalPopulationTv"
-                style="@style/infoTextStyle"
-                android:text="@{``+country.population}" />
+                <TextView
+                    android:id="@+id/generalSubregionTv"
+                    android:layout_weight="2"
+                    style="@style/infoTextStyle"
+                    android:text="@{country.subregion}" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/labelLat"
-                style="@style/infoLabelStyle"
-                android:text="@string/latitude" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/generalLatTv"
-                style="@style/infoTextStyle"
-                getLatitude="@{country}" />
+                <TextView
+                    android:id="@+id/labelArea"
+                    style="@style/infoLabelStyle"
+                    android:text="@string/area"
+                    android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/labelLon"
-                style="@style/infoLabelStyle"
-                android:text="@string/longitude" />
+                <TextView
+                    android:id="@+id/generalAreaTv"
+                    style="@style/infoTextStyle"
+                    android:layout_weight="2"
+                    number="@{country.area}" />
 
-            <TextView
-                android:id="@+id/generalLonTv"
-                style="@style/infoTextStyle"
-                getLongitude="@{country}" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/labelArea"
-                style="@style/infoLabelStyle"
-                android:text="@string/area" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/generalAreaTv"
-                style="@style/infoTextStyle"
-                android:text="@{``+country.area}" />
+                <TextView
+                    android:id="@+id/labelPopulation"
+                    style="@style/infoLabelStyle"
+                    android:text="@string/population"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/generalPopulationTv"
+                    style="@style/infoTextStyle"
+                    android:layout_weight="2"
+                    number="@{country.population}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/labelLat"
+                    style="@style/infoLabelStyle"
+                    android:text="@string/latitude"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/generalLatTv"
+                    style="@style/infoTextStyle"
+                    android:layout_weight="2"
+                    getLatitude="@{country}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/labelLon"
+                    style="@style/infoLabelStyle"
+                    android:text="@string/longitude"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/generalLonTv"
+                    style="@style/infoTextStyle"
+                    android:layout_weight="2"
+                    getLongitude="@{country}" />
+            </LinearLayout>
+
+
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

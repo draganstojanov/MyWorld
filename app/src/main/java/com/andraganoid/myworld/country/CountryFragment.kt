@@ -2,11 +2,15 @@ package com.andraganoid.myworld.country
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager.widget.ViewPager.*
+import androidx.viewpager2.widget.ViewPager2
 import com.andraganoid.myworld.MainActivity
 import com.andraganoid.myworld.country.borders.BordersFragment
 import com.andraganoid.myworld.country.codes.CodesFragment
@@ -35,7 +39,7 @@ class CountryFragment : Fragment() {
         arguments?.takeIf { it.containsKey(ARGS_COUNTRY) }?.apply {
             showData(getSerializable(ARGS_COUNTRY) as Country)
         }
-        backBtn.setOnClickListener{
+        backBtn.setOnClickListener {
             (activity as MainActivity).onBackPressed()
         }
     }
@@ -60,5 +64,4 @@ class CountryFragment : Fragment() {
             tab.text = tabText
         }.attach()
     }
-
 }
