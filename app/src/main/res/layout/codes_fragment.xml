@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="country"
+            type="com.andraganoid.myworld.model.Country" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/labelCode2"
+                    style="@style/infoLabelStyle"
+                    android:layout_weight="1"
+                    android:text="@string/country_code_2" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/codesCode2Tv"
+                    style="@style/infoTextStyle"
+                    android:text="@{country.alpha2Code}" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/labelCode3"
+                    android:layout_weight="1"
+                    style="@style/infoLabelStyle"
+                    android:text="@string/country_code_3" />
+
+                <TextView
+                    android:id="@+id/codesCode3Tv"
+                    android:layout_weight="1"
+                    style="@style/infoTextStyle"
+                    android:text="@{country.alpha3Code}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/labelDomain"
+                    android:layout_weight="1"
+                    style="@style/infoLabelStyle"
+                    android:text="@string/domain" />
+
+                <TextView
+                    android:id="@+id/codesDomainTv"
+                    android:layout_weight="1"
+                    style="@style/infoTextStyle"
+                    stringFromArray="@{country.topLevelDomain}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/labelCode"
+                    android:layout_weight="1"
+                    style="@style/infoLabelStyle"
+                    android:text="@string/country_code" />
+
+                <TextView
+                    android:id="@+id/codesCodeTv"
+                    android:layout_weight="1"
+                    style="@style/infoTextStyle"
+                    stringFromArray="@{country.callingCodes}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/labelTimezones"
+                    android:layout_weight="1"
+                    style="@style/infoLabelStyle"
+                    android:text="@string/time_zones" />
+
+                <TextView
+                    android:id="@+id/codesTimezonesTv"
+                    android:layout_weight="1"
+                    style="@style/infoTextStyle"
+                    stringFromArray="@{country.timezones}" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>
+

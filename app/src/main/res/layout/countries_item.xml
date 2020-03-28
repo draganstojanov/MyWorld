@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="country"
+            type="com.andraganoid.myworld.model.Country" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/darkBlue"
+            android:alpha=".4" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:padding="4dp" >
+
+            <ImageView
+                android:id="@+id/countriesItemFlagIv"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:scaleType="fitStart"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/countriesItemNativeNameTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{country.nativeName}"
+                android:textSize="@dimen/country_native_name_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@+id/countriesItemFlagIv" />
+
+            <TextView
+                android:id="@+id/countriesItemNameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{country.name}"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/country_name_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/countriesItemNativeNameTv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

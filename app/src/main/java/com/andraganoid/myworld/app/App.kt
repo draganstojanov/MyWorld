@@ -1,18 +1,17 @@
 package com.andraganoid.myworld.app
 
 import android.app.Application
-import com.andraganoid.myworld.di.AppComponent
-import com.andraganoid.myworld.di.DaggerAppComponent
+import com.andraganoid.memoryfields.di.Modules
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
 class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
-        component = DaggerAppComponent
-            .builder()
-            .build()
+        startKoin {
+            androidContext(this@App)
+            modules(Modules.appModule)
+        }
     }
 }
-
-lateinit var component: AppComponent

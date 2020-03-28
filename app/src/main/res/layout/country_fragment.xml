@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="country"
+            type="com.andraganoid.myworld.model.Country" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/app_background"
+        tools:context=".country.CountryFragment">
+
+        <TextView
+            android:id="@+id/countryFragmentNativeNameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:gravity="center"
+            android:background="@color/darkBlue"
+            android:fontFamily="@font/catamaran_extrabold"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:text="@{country.nativeName}"
+            android:textSize="@dimen/country_native_name_text_size_large"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingVertical="8dp"/>
+
+        <TextView
+            android:id="@+id/countryFragmentNameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:background="@color/darkBlue"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:paddingBottom="8dp"
+            android:text="@{country.name}"
+            android:textSize="@dimen/country_name_text_size_large"
+            app:layout_constraintTop_toBottomOf="@id/countryFragmentNativeNameTv" />
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="32dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@color/liteBlue"
+            app:layout_constraintBottom_toBottomOf="@id/countryFragmentNameTv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/countryFragmentFlagIv"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:adjustViewBounds="true"
+          android:layout_marginTop="16dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/countryFragmentNameTv" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/countryInfoTabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:tabTextColor="@color/darkBlue"
+            app:tabIndicatorColor="@color/darkBlue"
+            app:layout_constraintTop_toBottomOf="@id/countryFragmentFlagIv"
+            app:tabMode="scrollable" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/countryInfoVp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/countryInfoTabs" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

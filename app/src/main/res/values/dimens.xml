@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="countries_fragment_viewpager_height">56dp</dimen>
+    <dimen name="countries_fragment_et_height">56dp</dimen>
+    <dimen name="countries_item_height">192dp</dimen>
+    <dimen name="country_native_name_text_size">24sp</dimen>
+    <dimen name="country_name_text_size">16sp</dimen>
+    <dimen name="country_native_name_text_size_large">28sp</dimen>
+    <dimen name="country_name_text_size_large">16sp</dimen>
+    <dimen name="label_text_size">18sp</dimen>
+    <dimen name="info_text_size">28sp</dimen>
+
+</resources>

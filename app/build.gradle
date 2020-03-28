@@ -24,21 +24,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    viewBinding {
-        enabled = true
-    }
-    compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
-    }
+
+    dataBinding { enabled = true }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
 }
-def retrofit_ver = "2.7.1"
-def room_ver = "2.2.4"
-def dagger_ver = "2.26"
+
+
+def koin_version = "2.0.1"
+def retrofit_ver = "2.8.1"
 
 dependencies {
     // Kotlin
@@ -54,9 +54,7 @@ dependencies {
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_ver"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_ver"
-
-    // Gson
-    //  implementation 'com.google.code.gson:gson:2.8.6'
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
 
     // AndroidX
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -70,16 +68,12 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
-    // Room
-    implementation "androidx.room:room-runtime:$room_ver"
-    implementation "androidx.room:room-ktx:$room_ver"
-    kapt "androidx.room:room-compiler:$room_ver"
+    // Koin
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
 
-    // Dagger
-    implementation "com.google.dagger:dagger:$dagger_ver"
-   // annotationProcessor "com.google.dagger:dagger-compiler:$dagger_ver"
-    kapt "com.google.dagger:dagger-compiler:$dagger_ver"
-   // kapt "com.google.dagger:dagger-android-processor:$dagger_ver"
+    // GlideToVectorYou
+    implementation 'com.github.corouteam:GlideToVectorYou:v2.0.0'
 
     // Testing
     testImplementation 'junit:junit:4.13'
