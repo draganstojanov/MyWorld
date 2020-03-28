@@ -2,16 +2,13 @@ package com.andraganoid.myworld.country
 
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
-import androidx.viewpager.widget.ViewPager.*
-import androidx.viewpager2.widget.ViewPager2
 import com.andraganoid.myworld.MainActivity
+import com.andraganoid.myworld.R
 import com.andraganoid.myworld.country.borders.BordersFragment
 import com.andraganoid.myworld.country.codes.CodesFragment
 import com.andraganoid.myworld.country.currency.CurrencyFragment
@@ -46,7 +43,12 @@ class CountryFragment : Fragment() {
 
     private fun showData(country: Country) {
         binding.country = country
-        GlideToVectorYou.justLoadImage(activity, Uri.parse(country.flag), countryFragmentFlagIv)
+      //  GlideToVectorYou.justLoadImage(activity, Uri.parse(country.flag), countryFragmentFlagIv)
+        GlideToVectorYou
+            .init()
+            .with(activity)
+            .setPlaceHolder(R.drawable.ic_flag, R.drawable.ic_flag)
+            .load(Uri.parse(country.flag), countryFragmentFlagIv)
         val border = BordersFragment()
         val regional = RegionalFragment()
         val countryInfoList =
@@ -59,7 +61,8 @@ class CountryFragment : Fragment() {
         }
         countryInfoVp.adapter = CountryAdapter(this, country, countryInfoList)
         TabLayoutMediator(countryInfoTabs, countryInfoVp) { tab, position ->
-            val tabText = countryInfoList.get(position).javaClass.simpleName.replace("Fragment", "")
+            var tabText = countryInfoList.get(position).javaClass.simpleName.replace("Fragment", "")
+            tabText = if (tabText.equals("REGIONAL")) "$tabText \nblocks" else tabText
             Toast.makeText(activity, tabText, Toast.LENGTH_SHORT).show()
             tab.text = tabText
         }.attach()

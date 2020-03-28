@@ -21,10 +21,8 @@ class LanguageAdapter(private val languages: List<LanguagesItem?>?) : RecyclerVi
     inner class LanguageViewHolder(private val binding: LanguageItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(language: LanguagesItem) {
 
-
-            Log.d("LLANNGG",language.toString())
-
             binding.languageItem = language
+            binding.divider = languages?.size != adapterPosition + 1
             binding.executePendingBindings()
         }
     }

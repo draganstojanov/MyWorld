@@ -45,9 +45,9 @@ class CountriesViewModel(private val countriesRepository: CountriesRepository) :
                 _countries.postValue(response.countries)
 
                 response.countries?.forEach { country: Country ->//brisi
-                    if (country.currencies!!.size > 3) {
-                        Log.d("ccuurr", country.name.toString())
-                    }
+
+                        Log.d("ccuurr", country.toString())
+
                 }
 
 

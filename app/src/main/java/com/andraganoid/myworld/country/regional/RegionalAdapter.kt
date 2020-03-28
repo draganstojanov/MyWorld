@@ -1,12 +1,9 @@
 package com.andraganoid.myworld.country.regional
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.andraganoid.myworld.databinding.LanguageItemBinding
 import com.andraganoid.myworld.databinding.RegionalItemBinding
-import com.andraganoid.myworld.model.LanguagesItem
 import com.andraganoid.myworld.model.RegionalBlocsItem
 
 class RegionalAdapter(private val regionalBlocks: List<RegionalBlocsItem?>?) : RecyclerView.Adapter<RegionalAdapter.RegionalViewHolder>() {
@@ -24,6 +21,7 @@ class RegionalAdapter(private val regionalBlocks: List<RegionalBlocsItem?>?) : R
         fun bind(regionalBlocsItem: RegionalBlocsItem) {
 
             binding.regionalItem = regionalBlocsItem
+            binding.divider = regionalBlocks?.size != adapterPosition + 1
             binding.executePendingBindings()
         }
     }

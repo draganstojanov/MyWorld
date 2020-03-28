@@ -1,43 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <import type="android.view.View" />
 
         <variable
             name="regionalItem"
             type="com.andraganoid.myworld.model.RegionalBlocsItem" />
+
+        <variable
+            name="divider"
+            type="Boolean" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_margin="8dp"
-        android:background="@color/colorAccent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/regionalItemAcronymTv"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="@{regionalItem.acronym}"
-            android:textSize="@dimen/country_native_name_text_size"
-            app:layout_constraintStart_toStartOf="parent" />
+        <LinearLayout
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/labelRegionalAcronym"
+                style="@style/infoLabelStyle"
+                android:layout_weight="1"
+                android:text="@string/regional_acronym" />
 
-        <TextView
-            android:id="@+id/regionalItemNameTv"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:padding="8dp"
-            android:text="@{regionalItem.name}"
-            android:textSize="@dimen/country_native_name_text_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/regionalItemAcronymTv" />
+            <TextView
+                android:layout_weight="2"
+                android:id="@+id/regionalAcronym"
+                style="@style/infoTextStyle"
+                android:text="@{regionalItem.acronym}" />
 
+        </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/labelRegionalName"
+                android:layout_weight="1"
+                style="@style/infoLabelStyle"
+                android:text="@string/regional_name" />
+
+            <TextView
+                android:id="@+id/regionalName"
+                android:layout_weight="2"
+                style="@style/infoTextStyle"
+                android:text="@{regionalItem.name}" />
+        </LinearLayout>
+
+        <View
+            android:visibility="@{divider?View.VISIBLE:View.GONE}"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/darkBlue"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp" />
+
+    </LinearLayout>
+
 
 </layout>
+
+
