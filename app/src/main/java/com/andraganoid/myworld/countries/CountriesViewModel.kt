@@ -1,6 +1,5 @@
 package com.andraganoid.myworld.countries
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -43,15 +42,6 @@ class CountriesViewModel(private val countriesRepository: CountriesRepository) :
                 }
 
                 _countries.postValue(response.countries)
-
-                response.countries?.forEach { country: Country ->//brisi
-
-                        Log.d("ccuurr", country.toString())
-
-                }
-
-
-            } else {//todo error}
             }
         }
     }

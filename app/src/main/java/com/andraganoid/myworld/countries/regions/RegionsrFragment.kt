@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.regions_fragment.*
 
 class RegionsrFragment : Fragment() {
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
         inflater.inflate(R.layout.regions_fragment, container, false)
 

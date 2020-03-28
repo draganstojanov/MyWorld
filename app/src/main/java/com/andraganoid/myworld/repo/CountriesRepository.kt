@@ -25,7 +25,5 @@ class CountriesRepository(private val countriesApi: CountriesApi, private val pr
             isSucces = true
         }
         return response
-
     }
-
 }

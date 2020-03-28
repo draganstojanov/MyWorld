@@ -12,11 +12,6 @@ class CountryAdapter(
     private val countryInfoList: ArrayList<Fragment>
 ) : FragmentStateAdapter(fragment) {
 
-//    var countryInfoList: List<Fragment> = emptyList()
-//        set(value) {
-//            field = value
-//        }
-
     override fun getItemCount(): Int = countryInfoList.size
 
     override fun createFragment(position: Int): Fragment {

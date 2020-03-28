@@ -8,7 +8,6 @@ import com.andraganoid.myworld.R
 import com.andraganoid.myworld.databinding.CountriesItemBinding
 import com.andraganoid.myworld.model.Country
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
-import kotlinx.android.synthetic.main.country_fragment.*
 
 class CountriesAdapter(private val fragment: CountriesFragment) :
     RecyclerView.Adapter<CountriesAdapter.CountriesViewHolder>() {
@@ -45,7 +44,6 @@ class CountriesAdapter(private val fragment: CountriesFragment) :
     inner class CountriesViewHolder(private val binding: CountriesItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(country: Country) {
             binding.country = country
-         //   GlideToVectorYou.justLoadImage(fragment.activity, Uri.parse(country.flag), binding.countriesItemFlagIv)
             GlideToVectorYou
                 .init()
                 .with(fragment.activity)

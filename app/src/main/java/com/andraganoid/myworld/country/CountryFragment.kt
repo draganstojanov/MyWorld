@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.andraganoid.myworld.MainActivity
 import com.andraganoid.myworld.R
@@ -43,7 +42,6 @@ class CountryFragment : Fragment() {
 
     private fun showData(country: Country) {
         binding.country = country
-      //  GlideToVectorYou.justLoadImage(activity, Uri.parse(country.flag), countryFragmentFlagIv)
         GlideToVectorYou
             .init()
             .with(activity)
@@ -61,10 +59,8 @@ class CountryFragment : Fragment() {
         }
         countryInfoVp.adapter = CountryAdapter(this, country, countryInfoList)
         TabLayoutMediator(countryInfoTabs, countryInfoVp) { tab, position ->
-            var tabText = countryInfoList.get(position).javaClass.simpleName.replace("Fragment", "")
-            tabText = if (tabText.equals("REGIONAL")) "$tabText \nblocks" else tabText
-            Toast.makeText(activity, tabText, Toast.LENGTH_SHORT).show()
-            tab.text = tabText
+            val tabText = countryInfoList.get(position).javaClass.simpleName.replace("Fragment", "")
+            tab.text = if (tabText.equals("regional")) "$tabText blocks" else tabText
         }.attach()
     }
 }

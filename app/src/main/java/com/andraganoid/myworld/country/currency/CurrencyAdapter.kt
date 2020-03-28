@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.andraganoid.myworld.databinding.CurrencyItemBinding
 import com.andraganoid.myworld.model.CurrenciesItem
 
-
 class CurrencyAdapter(private val currencies: List<CurrenciesItem?>?) : RecyclerView.Adapter<CurrencyAdapter.CurrencyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrencyViewHolder {

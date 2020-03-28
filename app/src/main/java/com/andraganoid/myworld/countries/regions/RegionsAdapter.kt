@@ -12,7 +12,7 @@ class RegionsAdapter(fragment: Fragment, private val regionList: List<String>) :
     override fun getItemCount(): Int = regionList.size
 
     override fun createFragment(position: Int): Fragment {
-        MAX = regionList.size-1
+        MAX = regionList.size - 1
         val fragment = RegionsrFragment()
         fragment.arguments = Bundle().apply {
             putString(ARGS_REGION, regionList.get(position))

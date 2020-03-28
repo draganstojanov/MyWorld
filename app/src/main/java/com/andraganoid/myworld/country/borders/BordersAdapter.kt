@@ -24,7 +24,6 @@ class BordersAdapter(private val borders: List<Country>, private val fragment: B
     inner class BordersViewHolder(private val binding: CountriesItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(country: Country) {
             binding.country = country
-//            GlideToVectorYou.justLoadImage(fragment.activity, Uri.parse(country.flag), binding.countriesItemFlagIv)
             GlideToVectorYou
                 .init()
                 .with(fragment.activity)

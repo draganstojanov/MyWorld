@@ -38,8 +38,7 @@ android {
 
 
 def koin_version = "2.0.1"
-def retrofit_ver = "2.7.1"
-def room_ver = "2.2.5"
+def retrofit_ver = "2.8.1"
 
 dependencies {
     // Kotlin
@@ -68,11 +67,6 @@ dependencies {
     // Lifecycle
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-
-    // Room
-    implementation "androidx.room:room-runtime:$room_ver"
-    implementation "androidx.room:room-ktx:$room_ver"
-    kapt "androidx.room:room-compiler:$room_ver"
 
     // Koin
     implementation "org.koin:koin-android:$koin_version"

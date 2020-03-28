@@ -12,17 +12,18 @@ import kotlinx.android.synthetic.main.language_fragment.*
 
 class LanguageFragment : Fragment() {
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.language_fragment, container, false)
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        languageRecView.adapter = LanguageAdapter((arguments?.getSerializable(ARGS_COUNTRY) as Country).languages)
+        arguments?.takeIf { it.containsKey(ARGS_COUNTRY) }?.apply {
+            languageRecView.adapter = LanguageAdapter((arguments?.getSerializable(ARGS_COUNTRY) as Country).languages)
+        }
     }
-
 }
+
+
 
 
 
