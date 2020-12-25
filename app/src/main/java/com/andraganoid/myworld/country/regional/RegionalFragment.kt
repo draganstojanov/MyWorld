@@ -1,12 +1,10 @@
 package com.andraganoid.myworld.country.regional
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
 import com.andraganoid.myworld.R
 import com.andraganoid.myworld.model.Country
 import com.andraganoid.myworld.utils.ARGS_COUNTRY
@@ -22,7 +20,6 @@ class RegionalFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         regionalRecView.adapter = RegionalAdapter((arguments?.getSerializable(ARGS_COUNTRY) as Country).regionalBlocs)
     }
-
 
 
 }
