@@ -1,7 +1,6 @@
-package com.andraganoid.memoryfields.di
+package com.andraganoid.myworld.di
 
-
-import com.andraganoid.myworld.api.CountriesNetworkService
+import com.andraganoid.myworld.api.countriesNetworkService
 import com.andraganoid.myworld.countries.CountriesViewModel
 import com.andraganoid.myworld.country.borders.BordersViewModel
 import com.andraganoid.myworld.repo.CountriesRepository
@@ -24,7 +23,7 @@ object Modules {
 
 
     private val networkModule = module {
-        single { CountriesNetworkService().countriesNetworkService }
+        single { countriesNetworkService }
     }
 
     val appModule =

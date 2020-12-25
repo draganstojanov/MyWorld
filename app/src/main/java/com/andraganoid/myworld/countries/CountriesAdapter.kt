@@ -8,8 +8,9 @@ import com.andraganoid.myworld.R
 import com.andraganoid.myworld.databinding.CountriesItemBinding
 import com.andraganoid.myworld.model.Country
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
+import java.util.*
 
-class CountriesAdapter(private val fragment: CountriesFragment) :
+class CountriesAdapter(private val countryClick: (Country) -> Unit) :
     RecyclerView.Adapter<CountriesAdapter.CountriesViewHolder>() {
     var finalList: ArrayList<Country>? = arrayListOf()
 
@@ -27,8 +28,9 @@ class CountriesAdapter(private val fragment: CountriesFragment) :
 
     fun searchFilter(search: String) {
         finalListSet(filteredList?.filter { country ->
-            country.name?.toLowerCase()!!.contains(search.toLowerCase()) || country.nativeName?.toLowerCase()!!
-                .contains(search.toLowerCase())
+            country.name?.toLowerCase(Locale.getDefault())!!
+                .contains(search.toLowerCase(Locale.getDefault())) || country.nativeName?.toLowerCase(Locale.getDefault())!!
+                .contains(search.toLowerCase(Locale.getDefault()))
         })
     }
 
@@ -46,10 +48,10 @@ class CountriesAdapter(private val fragment: CountriesFragment) :
             binding.country = country
             GlideToVectorYou
                 .init()
-                .with(fragment.activity)
+                .with(binding.root.context)
                 .setPlaceHolder(R.drawable.ic_flag, R.drawable.ic_flag)
                 .load(Uri.parse(country.flag), binding.countriesItemFlagIv)
-            binding.root.setOnClickListener { fragment.onCountryClick(finalList?.get(adapterPosition)) }
+            binding.root.setOnClickListener { countryClick.invoke(finalList?.get(adapterPosition)!!) }
         }
     }
 

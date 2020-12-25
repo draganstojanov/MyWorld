@@ -5,17 +5,11 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CountriesNetworkService {
-//    private fun retrofit() = Retrofit.Builder()
-//        .baseUrl("https://restcountries.eu/rest/v2/")
-//        .addConverterFactory(GsonConverterFactory.create(Gson()))
-//        .addCallAdapterFactory(CoroutineCallAdapterFactory())
-//        .build()
 
-   val countriesNetworkService: CountriesApi = Retrofit.Builder()
-       .baseUrl("https://restcountries.eu/rest/v2/")
-       .addConverterFactory(GsonConverterFactory.create(Gson()))
-       .addCallAdapterFactory(CoroutineCallAdapterFactory())
-       .build()
-       .create(CountriesApi::class.java)
-}
+val retrofit: Retrofit = Retrofit.Builder()
+    .baseUrl("https://restcountries.eu/rest/v2/")
+    .addConverterFactory(GsonConverterFactory.create(Gson()))
+    .addCallAdapterFactory(CoroutineCallAdapterFactory())
+    .build()
+
+val countriesNetworkService: CountriesApi = retrofit.create(CountriesApi::class.java)
