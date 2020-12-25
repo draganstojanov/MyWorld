@@ -12,7 +12,7 @@ class CountriesRepository(private val countriesApi: CountriesApi, private val pr
         var mCountries: List<Country> = listOf()
         if (preferences.lastTimestampCheck()) {
             try {
-                mCountries = countriesApi.getAllCountries().await()
+                mCountries = countriesApi.getAllCountriesAsync().await()
                 preferences.saveAllCountries(mCountries)
             } catch (exc: Exception) {
                 response.isSucces = false

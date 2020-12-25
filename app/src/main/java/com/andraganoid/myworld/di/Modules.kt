@@ -24,7 +24,7 @@ object Modules {
 
 
     private val networkModule = module {
-        single { CountriesNetworkService().getCountriesNetworkService() }
+        single { CountriesNetworkService().countriesNetworkService }
     }
 
     val appModule =
