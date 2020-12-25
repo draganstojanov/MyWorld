@@ -10,36 +10,40 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
-import com.andraganoid.myworld.R
 import com.andraganoid.myworld.countries.regions.RegionsAdapter
+import com.andraganoid.myworld.databinding.CountriesFragmentBinding
 import com.andraganoid.myworld.model.Country
 import com.andraganoid.myworld.utils.ALL
 import com.andraganoid.myworld.utils.OTHER
 import com.andraganoid.myworld.utils.hideKeyboard
-import kotlinx.android.synthetic.main.countries_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
-import java.math.BigDecimal
 
 
 class CountriesFragment : Fragment() {
+
+    private var _binding: CountriesFragmentBinding? = null
+    private val binding get() = _binding
 
     private val viewModel: CountriesViewModel by viewModel()
     private lateinit var countriesAdapter: CountriesAdapter
     private lateinit var viewPager: ViewPager2
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
-        inflater.inflate(R.layout.countries_fragment, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = CountriesFragmentBinding.inflate(inflater, container, false)
+        return _binding!!.root
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewPager = countriesFragmentViewPager
+        viewPager = binding?.countriesFragmentViewPager!!
         countriesAdapter = CountriesAdapter(this)
-        countriesRecView.adapter = countriesAdapter
+        binding?.countriesRecView?.adapter = countriesAdapter
         setObservers()
         regionSelector()
         searchListener()
-        countriesFragmentKeyboardBtn.setOnClickListener { mView ->
-            hideKeyboard(context!!, mView)
+        binding?.countriesFragmentKeyboardBtn?.setOnClickListener { mView ->
+            hideKeyboard(requireContext(), mView)
         }
     }
 
@@ -54,8 +58,8 @@ class CountriesFragment : Fragment() {
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                countriesFragmentSearchEt.text.clear()
-                countriesFragmentKeyboardBtn.performClick()
+                binding?.countriesFragmentSearchEt?.text?.clear()
+                binding?.countriesFragmentKeyboardBtn?.performClick()
                 val countries = viewModel.countries.value
                 val filter = viewModel.regions?.get(position)
                 countriesAdapter.filteredList = when (filter) {
@@ -68,7 +72,7 @@ class CountriesFragment : Fragment() {
     }
 
     private fun searchListener() {
-        countriesFragmentSearchEt.addTextChangedListener(object : TextWatcher {
+        binding?.countriesFragmentSearchEt?.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 val search = if (s!!.equals(" ")) "" else s.toString()
                 countriesAdapter.searchFilter(search)
@@ -83,10 +87,15 @@ class CountriesFragment : Fragment() {
     }
 
     fun onCountryClick(country: Country?) {
-        hideKeyboard(context!!,view!!)
+        hideKeyboard(requireContext(), _binding?.root!!)
         val action = CountriesFragmentDirections.actionCountriesFragmentToCountryFragment()
         action.country = country
         findNavController().navigate(action)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }
