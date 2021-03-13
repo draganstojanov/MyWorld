@@ -1,4 +1,4 @@
-package com.andraganoid.memoryfields.di
+package com.andraganoid.myworld.di
 
 
 import com.andraganoid.myworld.api.CountriesNetworkService
@@ -24,7 +24,7 @@ object Modules {
 
 
     private val networkModule = module {
-        single { CountriesNetworkService().getCountriesNetworkService() }
+        single { CountriesNetworkService().countriesService() }
     }
 
     val appModule =

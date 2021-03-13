@@ -18,7 +18,6 @@ import com.andraganoid.myworld.utils.OTHER
 import com.andraganoid.myworld.utils.hideKeyboard
 import kotlinx.android.synthetic.main.countries_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
-import java.math.BigDecimal
 
 
 class CountriesFragment : Fragment() {
@@ -33,14 +32,12 @@ class CountriesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewPager = countriesFragmentViewPager
-        countriesAdapter = CountriesAdapter(this)
+        countriesAdapter = CountriesAdapter(this::onCountryClick)
         countriesRecView.adapter = countriesAdapter
         setObservers()
         regionSelector()
         searchListener()
-        countriesFragmentKeyboardBtn.setOnClickListener { mView ->
-            hideKeyboard(context!!, mView)
-        }
+        countriesFragmentKeyboardBtn.setOnClickListener { mView -> hideKeyboard(context!!, mView) }
     }
 
     private fun setObservers() {
@@ -82,7 +79,7 @@ class CountriesFragment : Fragment() {
         })
     }
 
-    fun onCountryClick(country: Country?) {
+    private fun onCountryClick(country: Country?) {
         hideKeyboard(context!!,view!!)
         val action = CountriesFragmentDirections.actionCountriesFragmentToCountryFragment()
         action.country = country

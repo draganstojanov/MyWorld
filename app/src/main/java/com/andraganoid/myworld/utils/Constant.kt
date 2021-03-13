@@ -8,3 +8,5 @@ const val ARGS_COUNTRY = "country"
 
 const val MIN = 0
 var MAX = 0
+
+const val BASE_URL="https://restcountries.eu/rest/v2/"
