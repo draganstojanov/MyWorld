@@ -58,8 +58,8 @@ class CountryFragment : Fragment() {
         }
         binding.countryInfoVp.adapter = CountryAdapter(this, country, countryInfoList)
         TabLayoutMediator(binding.countryInfoTabs, binding.countryInfoVp) { tab, position ->
-            val tabText = countryInfoList.get(position).javaClass.simpleName.replace("Fragment", "")
-            tab.text = if (tabText.equals("regional")) "$tabText blocks" else tabText
+            val tabText = countryInfoList[position].javaClass.simpleName.replace("Fragment", "")
+            tab.text = if (tabText == "regional") "$tabText blocks" else tabText
         }.attach()
     }
 }

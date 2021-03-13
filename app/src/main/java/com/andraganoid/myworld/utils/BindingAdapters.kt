@@ -44,7 +44,7 @@ private val koin: Koin = GlobalContext.get().koin
 private val context: Context by koin.inject()
 
 private fun getLatLong(latLng: List<Float?>?, index: Int): String =
-    if (latLng!!.size > 0) latLng.get(index).toString() else context.resources.getString(R.string.no_data)
+    if (latLng!!.isNotEmpty()) latLng[index].toString() else context.resources.getString(R.string.no_data)
 
 private val numberFormat = NumberFormat.getInstance()
 

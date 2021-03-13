@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.andraganoid.myworld.countries.regions.RegionsAdapter
@@ -41,13 +40,11 @@ class CountriesFragment : Fragment() {
         setObservers()
         regionSelector()
         searchListener()
-        binding?.countriesFragmentKeyboardBtn?.setOnClickListener { mView ->
-            hideKeyboard(requireContext(), mView)
-        }
+        binding?.countriesFragmentKeyboardBtn?.setOnClickListener { activity?.hideKeyboard(it) }
     }
 
     private fun setObservers() {
-        viewModel.countries.observe(viewLifecycleOwner, Observer { countries ->
+        viewModel.countries.observe(viewLifecycleOwner, { countries ->
             countriesAdapter.filteredList = countries
             viewPager.adapter = RegionsAdapter(this, viewModel.regions!!)
         })
@@ -79,7 +76,7 @@ class CountriesFragment : Fragment() {
     }
 
     private fun onCountryClick(country: Country?) {
-        hideKeyboard(requireContext(), _binding?.root!!)
+        activity?.hideKeyboard(_binding?.root!!)
         val action = CountriesFragmentDirections.actionCountriesFragmentToCountryFragment()
         action.country = country
         this.findNavController().navigate(action)

@@ -15,7 +15,7 @@ class CountryAdapter(
     override fun getItemCount(): Int = countryInfoList.size
 
     override fun createFragment(position: Int): Fragment {
-        val fragment = countryInfoList.get(position)
+        val fragment = countryInfoList[position]
         fragment.arguments = Bundle().apply { putSerializable(ARGS_COUNTRY, country) }
         return fragment
     }

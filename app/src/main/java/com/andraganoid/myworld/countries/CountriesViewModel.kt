@@ -40,7 +40,6 @@ class CountriesViewModel(private val countriesRepository: CountriesRepository) :
                 if (other) {
                     regions!!.add(OTHER)
                 }
-
                 _countries.postValue(response.countries)
             }
         }
