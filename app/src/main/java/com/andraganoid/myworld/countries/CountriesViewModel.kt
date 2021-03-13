@@ -22,10 +22,10 @@ class CountriesViewModel(private val countriesRepository: CountriesRepository) :
         getAllCountries()
     }
 
-    fun getAllCountries() {
+    private fun getAllCountries() {
         viewModelScope.launch {
             val response = countriesRepository.getAllCountries()
-            if (response.isSucces!!) {
+            if (response.isSuccess!!) {
                 val regionsSet = sortedSetOf<String>()
                 var other = false
                 response.countries?.forEach { country ->
@@ -40,7 +40,6 @@ class CountriesViewModel(private val countriesRepository: CountriesRepository) :
                 if (other) {
                     regions!!.add(OTHER)
                 }
-
                 _countries.postValue(response.countries)
             }
         }

@@ -8,12 +8,15 @@ import com.google.gson.reflect.TypeToken
 
 class Preferences(val context: Context) {
 
-    private val PREF_NAME = "com.andraganoid.myworld.SHARED_PREFERENCES"
-    private val PREF_ALL_COUNTRIES = "all_countries"
-    private val PREF_LAST_TIMESTAMP = "last_timestamp"
-    private val TIMESTAMP_GAP = 24 * 60 * 60 * 1000L
+    companion object {
+        private const val PREF_NAME = "com.andraganoid.myworld.SHARED_PREFERENCES"
+        private const val PREF_ALL_COUNTRIES = "all_countries"
+        private const val PREF_LAST_TIMESTAMP = "last_timestamp"
+        private const val TIMESTAMP_GAP = 24 * 60 * 60 * 1000L
+    }
 
-    val sharedPreferences: SharedPreferences
+
+    private val sharedPreferences: SharedPreferences
         get() = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
     fun saveAllCountries(countries: List<Country>) {

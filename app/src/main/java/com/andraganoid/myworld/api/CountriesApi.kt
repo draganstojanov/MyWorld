@@ -7,6 +7,6 @@ import retrofit2.http.GET
 interface CountriesApi {
 
     @GET("all")
-    fun getAllCountries(): Deferred<List<Country>>
+    fun getAllCountriesAsync(): Deferred<List<Country>>
 
 }

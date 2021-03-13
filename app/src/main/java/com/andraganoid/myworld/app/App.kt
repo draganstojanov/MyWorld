@@ -1,7 +1,7 @@
 package com.andraganoid.myworld.app
 
 import android.app.Application
-import com.andraganoid.memoryfields.di.Modules
+import com.andraganoid.myworld.di.Modules
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

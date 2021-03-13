@@ -19,7 +19,6 @@ import com.andraganoid.myworld.model.Country
 import com.andraganoid.myworld.utils.ARGS_COUNTRY
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.country_fragment.*
 
 class CountryFragment : Fragment() {
 
@@ -35,7 +34,7 @@ class CountryFragment : Fragment() {
         arguments?.takeIf { it.containsKey(ARGS_COUNTRY) }?.apply {
             showData(getSerializable(ARGS_COUNTRY) as Country)
         }
-        backBtn.setOnClickListener {
+        binding.backBtn.setOnClickListener {
             (activity as MainActivity).onBackPressed()
         }
     }
@@ -46,7 +45,7 @@ class CountryFragment : Fragment() {
             .init()
             .with(activity)
             .setPlaceHolder(R.drawable.ic_flag, R.drawable.ic_flag)
-            .load(Uri.parse(country.flag), countryFragmentFlagIv)
+            .load(Uri.parse(country.flag), binding.countryFragmentFlagIv)
         val border = BordersFragment()
         val regional = RegionalFragment()
         val countryInfoList =
@@ -57,10 +56,10 @@ class CountryFragment : Fragment() {
         if (country.regionalBlocs?.size == 0) {
             countryInfoList.remove(regional)
         }
-        countryInfoVp.adapter = CountryAdapter(this, country, countryInfoList)
-        TabLayoutMediator(countryInfoTabs, countryInfoVp) { tab, position ->
-            val tabText = countryInfoList.get(position).javaClass.simpleName.replace("Fragment", "")
-            tab.text = if (tabText.equals("regional")) "$tabText blocks" else tabText
+        binding.countryInfoVp.adapter = CountryAdapter(this, country, countryInfoList)
+        TabLayoutMediator(binding.countryInfoTabs, binding.countryInfoVp) { tab, position ->
+            val tabText = countryInfoList[position].javaClass.simpleName.replace("Fragment", "")
+            tab.text = if (tabText == "regional") "$tabText blocks" else tabText
         }.attach()
     }
 }
