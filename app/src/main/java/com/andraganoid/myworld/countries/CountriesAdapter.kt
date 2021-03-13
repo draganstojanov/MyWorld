@@ -10,7 +10,8 @@ import com.andraganoid.myworld.model.Country
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 import java.util.*
 
-class CountriesAdapter(private val onCountryClick: (Country) -> Unit) : RecyclerView.Adapter<CountriesAdapter.CountriesViewHolder>() {
+class CountriesAdapter(private val countryClick: (Country) -> Unit) :
+    RecyclerView.Adapter<CountriesAdapter.CountriesViewHolder>() {
     var finalList: ArrayList<Country>? = arrayListOf()
 
     private fun finalListSet(fList: List<Country>?) {
@@ -30,6 +31,9 @@ class CountriesAdapter(private val onCountryClick: (Country) -> Unit) : Recycler
             country.name?.toLowerCase(Locale.ROOT)!!
                 .contains(search.toLowerCase(Locale.ROOT)) || country.nativeName?.toLowerCase(Locale.ROOT)!!
                 .contains(search.toLowerCase(Locale.ROOT))
+            country.name?.toLowerCase(Locale.getDefault())!!
+                .contains(search.toLowerCase(Locale.getDefault())) || country.nativeName?.toLowerCase(Locale.getDefault())!!
+                .contains(search.toLowerCase(Locale.getDefault()))
         })
     }
 
@@ -52,6 +56,7 @@ class CountriesAdapter(private val onCountryClick: (Country) -> Unit) : Recycler
                 .load(Uri.parse(country.flag), binding.countriesItemFlagIv)
             binding.root.setOnClickListener { onCountryClick.invoke(finalList?.get(adapterPosition)!!) }
             binding.executePendingBindings()
+            binding.root.setOnClickListener { countryClick.invoke(finalList?.get(adapterPosition)!!) }
         }
     }
 

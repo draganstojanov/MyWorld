@@ -1,28 +1,33 @@
 package com.andraganoid.myworld.country.regional
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
-import com.andraganoid.myworld.R
+import androidx.fragment.app.Fragment
+import com.andraganoid.myworld.databinding.RegionalFragmentBinding
 import com.andraganoid.myworld.model.Country
 import com.andraganoid.myworld.utils.ARGS_COUNTRY
-import kotlinx.android.synthetic.main.regional_fragment.*
+
 
 class RegionalFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.regional_fragment, container, false)
+    private var _binding: RegionalFragmentBinding? = null
+    private val binding get() = _binding
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = RegionalFragmentBinding.inflate(inflater, container, false)
+        return _binding!!.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        regionalRecView.adapter = RegionalAdapter((arguments?.getSerializable(ARGS_COUNTRY) as Country).regionalBlocs)
+        binding?.regionalRecView?.adapter = RegionalAdapter((arguments?.getSerializable(ARGS_COUNTRY) as Country).regionalBlocs)
     }
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 }
