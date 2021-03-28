@@ -14,9 +14,6 @@ android {
         applicationId "com.andraganoid.myworld"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
-        targetSdkVersion 30
         versionCode 2
         versionName "1.0.1"
 
@@ -29,12 +26,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
-    buildFeatures{
+    buildFeatures {
         dataBinding true
         viewBinding true
     }
@@ -57,7 +54,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     // Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2"
 
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
@@ -78,14 +75,15 @@ dependencies {
 
     // Lifecycle
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
 
     // Koin
     implementation "org.koin:koin-android:$koin_version"
     implementation "org.koin:koin-android-viewmodel:$koin_version"
 
-    // GlideToVectorYou
-    implementation 'com.github.corouteam:GlideToVectorYou:v2.0.0'
+    // Coil
+    implementation("io.coil-kt:coil:1.1.1")
+    implementation("io.coil-kt:coil-svg:1.1.1")
 
     // Testing
     testImplementation 'junit:junit:4.13.2'
