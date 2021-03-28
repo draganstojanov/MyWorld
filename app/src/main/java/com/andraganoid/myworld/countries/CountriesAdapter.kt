@@ -4,10 +4,11 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.andraganoid.myworld.R
 import com.andraganoid.myworld.databinding.CountriesItemBinding
 import com.andraganoid.myworld.model.Country
-import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
+import com.andraganoid.myworld.utils.svgImageLoader
 import java.util.*
 
 class CountriesAdapter(private val countryClick: (Country) -> Unit) :
@@ -46,11 +47,10 @@ class CountriesAdapter(private val countryClick: (Country) -> Unit) :
     inner class CountriesViewHolder(private val binding: CountriesItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(country: Country) {
             binding.country = country
-            GlideToVectorYou
-                .init()
-                .with(binding.root.context)
-                .setPlaceHolder(R.drawable.ic_flag, R.drawable.ic_flag)
-                .load(Uri.parse(country.flag), binding.countriesItemFlagIv)
+            binding.countriesItemFlagIv.load(Uri.parse(country.flag),binding.root.context.svgImageLoader) {
+                placeholder(R.drawable.ic_flag)
+                fallback(R.drawable.ic_flag)
+            }
             binding.executePendingBindings()
             binding.root.setOnClickListener { countryClick.invoke(finalList!![adapterPosition]) }
             binding.executePendingBindings()

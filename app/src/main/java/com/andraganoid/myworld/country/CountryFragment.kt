@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import coil.load
 import com.andraganoid.myworld.MainActivity
 import com.andraganoid.myworld.R
 import com.andraganoid.myworld.country.borders.BordersFragment
@@ -17,7 +18,7 @@ import com.andraganoid.myworld.country.regional.RegionalFragment
 import com.andraganoid.myworld.databinding.CountryFragmentBinding
 import com.andraganoid.myworld.model.Country
 import com.andraganoid.myworld.utils.ARGS_COUNTRY
-import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
+import com.andraganoid.myworld.utils.svgImageLoader
 import com.google.android.material.tabs.TabLayoutMediator
 
 class CountryFragment : Fragment() {
@@ -41,11 +42,11 @@ class CountryFragment : Fragment() {
 
     private fun showData(country: Country) {
         binding.country = country
-        GlideToVectorYou
-            .init()
-            .with(activity)
-            .setPlaceHolder(R.drawable.ic_flag, R.drawable.ic_flag)
-            .load(Uri.parse(country.flag), binding.countryFragmentFlagIv)
+        binding.countryFragmentFlagIv.load(Uri.parse(country.flag), requireContext().svgImageLoader) {
+            placeholder(R.drawable.ic_flag)
+            fallback(R.drawable.ic_flag)
+        }
+
         val border = BordersFragment()
         val regional = RegionalFragment()
         val countryInfoList =
