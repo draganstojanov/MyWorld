@@ -13,9 +13,7 @@ class GeneralFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val binding = GeneralFragmentBinding.inflate(inflater, container, false)
-        arguments?.takeIf { it.containsKey(ARGS_COUNTRY) }?.apply {
-            binding.country = getSerializable(ARGS_COUNTRY) as Country
-        }
+        arguments?.takeIf { it.containsKey(ARGS_COUNTRY) }?.apply { binding.country = getSerializable(ARGS_COUNTRY) as Country }
         return binding.root
     }
 }

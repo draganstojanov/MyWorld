@@ -28,12 +28,11 @@ class CountriesFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = CountriesFragmentBinding.inflate(inflater, container, false)
+        prepare()
         return _binding!!.root
     }
 
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun prepare() {
         viewPager = binding?.countriesFragmentViewPager!!
         countriesAdapter = CountriesAdapter(this::onCountryClick)
         binding?.countriesRecView?.adapter = countriesAdapter

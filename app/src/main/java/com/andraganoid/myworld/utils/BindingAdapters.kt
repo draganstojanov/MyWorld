@@ -5,8 +5,6 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.andraganoid.myworld.R
 import com.andraganoid.myworld.model.Country
-import org.koin.core.Koin
-import org.koin.core.context.GlobalContext
 import java.text.NumberFormat
 
 
@@ -17,12 +15,12 @@ fun number(tv: TextView, number: Number) {
 
 @BindingAdapter("getLatitude")
 fun getLatitude(tv: TextView, country: Country) {
-    tv.text = getLatLong(country.latlng, 0)
+    tv.text = getLatLong(country.latlng, 0,tv.context)
 }
 
 @BindingAdapter("getLongitude")
 fun getLongitude(tv: TextView, country: Country) {
-    tv.text = getLatLong(country.latlng, 1)
+    tv.text = getLatLong(country.latlng, 1, tv.context)
 }
 
 @BindingAdapter("stringFromArray")
@@ -40,10 +38,8 @@ fun getStringFromArray(tv: TextView, mList: List<String?>?) {
     tv.text = sb.toString()
 }
 
-private val koin: Koin = GlobalContext.get().koin
-private val context: Context by koin.inject()
 
-private fun getLatLong(latLng: List<Float?>?, index: Int): String =
+private fun getLatLong(latLng: List<Float?>?, index: Int, context: Context): String =
     if (latLng!!.isNotEmpty()) latLng[index].toString() else context.resources.getString(R.string.no_data)
 
 private val numberFormat = NumberFormat.getInstance()
