@@ -27,17 +27,13 @@ class CountryFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = CountryFragmentBinding.inflate(inflater, container, false)
+        prepare()
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        arguments?.takeIf { it.containsKey(ARGS_COUNTRY) }?.apply {
-            showData(getSerializable(ARGS_COUNTRY) as Country)
-        }
-        binding.backBtn.setOnClickListener {
-            (activity as MainActivity).onBackPressed()
-        }
+    private fun prepare() {
+        arguments?.takeIf { it.containsKey(ARGS_COUNTRY) }?.apply { showData(getSerializable(ARGS_COUNTRY) as Country) }
+        binding.backBtn.setOnClickListener { (activity as MainActivity).onBackPressed() }
     }
 
     private fun showData(country: Country) {

@@ -20,11 +20,11 @@ class RegionsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = RegionsFragmentBinding.inflate(inflater, container, false)
+        prepare()
         return binding!!.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun prepare() {
         arguments?.takeIf { it.containsKey(ARGS_REGION) }?.apply {
             binding?.countriesViewPagerFragmentRegionTv?.text = getString(ARGS_REGION)
             val pos = getInt(ARGS_REGION_POS)
@@ -32,6 +32,7 @@ class RegionsFragment : Fragment() {
             binding?.arrowRight?.isVisible = pos != MAX
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -52,7 +52,7 @@
             android:layout_width="32dp"
             android:layout_height="0dp"
             android:src="@drawable/ic_arrow_back"
-            android:tint="@color/liteBlue"
+            app:tint="@color/liteBlue"
             app:layout_constraintBottom_toBottomOf="@id/countryFragmentNameTv"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -60,7 +60,7 @@
         <ImageView
             android:id="@+id/countryFragmentFlagIv"
             android:layout_width="0dp"
-            android:layout_height="64dp"
+            android:layout_height="128dp"
             android:adjustViewBounds="true"
           android:layout_marginTop="16dp"
             android:scaleType="fitCenter"

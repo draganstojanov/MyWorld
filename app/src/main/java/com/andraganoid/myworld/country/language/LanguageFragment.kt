@@ -17,15 +17,12 @@ class LanguageFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = LanguageFragmentBinding.inflate(inflater, container, false)
-        return _binding!!.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         arguments?.takeIf { it.containsKey(ARGS_COUNTRY) }?.apply {
             binding?.languageRecView?.adapter = LanguageAdapter((arguments?.getSerializable(ARGS_COUNTRY) as Country).languages)
         }
+        return _binding!!.root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

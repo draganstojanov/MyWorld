@@ -29,9 +29,8 @@ class CountriesAdapter(private val countryClick: (Country) -> Unit) :
 
     fun searchFilter(search: String) {
         finalListSet(filteredList?.filter { country ->
-            country.name?.toLowerCase(Locale.getDefault())!!
-                .contains(search.toLowerCase(Locale.getDefault())) || country.nativeName?.toLowerCase(Locale.getDefault())!!
-                .contains(search.toLowerCase(Locale.getDefault()))
+            country.name?.toLowerCase(Locale.getDefault())!!.contains(search.toLowerCase(Locale.getDefault()))
+                    || country.nativeName?.toLowerCase(Locale.getDefault())!!.contains(search.toLowerCase(Locale.getDefault()))
         })
     }
 
@@ -47,11 +46,10 @@ class CountriesAdapter(private val countryClick: (Country) -> Unit) :
     inner class CountriesViewHolder(private val binding: CountriesItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(country: Country) {
             binding.country = country
-            binding.countriesItemFlagIv.load(Uri.parse(country.flag),binding.root.context.svgImageLoader) {
+            binding.countriesItemFlagIv.load(Uri.parse(country.flag), binding.root.context.svgImageLoader) {
                 placeholder(R.drawable.ic_flag)
                 fallback(R.drawable.ic_flag)
             }
-            binding.executePendingBindings()
             binding.root.setOnClickListener { countryClick.invoke(finalList!![adapterPosition]) }
             binding.executePendingBindings()
         }
