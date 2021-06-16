@@ -3,7 +3,6 @@ package com.andraganoid.myworld.di
 
 import com.andraganoid.myworld.BuildConfig
 import com.andraganoid.myworld.api.CountriesApi
-import com.andraganoid.myworld.api.CountriesNetworkService
 import com.andraganoid.myworld.countries.CountriesViewModel
 import com.andraganoid.myworld.country.borders.BordersViewModel
 import com.andraganoid.myworld.repo.CountriesRepository
@@ -14,8 +13,10 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
-import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
+
 import org.koin.dsl.module
+import org.koin.dsl.single
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -36,7 +37,7 @@ object Modules {
 
         single { Gson() }
 
-        single(override = true) {
+        single() {
             val builder = OkHttpClient.Builder()
                 .readTimeout(30, TimeUnit.SECONDS)
                 .connectTimeout(30, TimeUnit.SECONDS)

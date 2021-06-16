@@ -29,8 +29,8 @@ class CountriesAdapter(private val countryClick: (Country) -> Unit) :
 
     fun searchFilter(search: String) {
         finalListSet(filteredList?.filter { country ->
-            country.name?.toLowerCase(Locale.getDefault())!!.contains(search.toLowerCase(Locale.getDefault()))
-                    || country.nativeName?.toLowerCase(Locale.getDefault())!!.contains(search.toLowerCase(Locale.getDefault()))
+            country.name?.lowercase(Locale.getDefault())!!.contains(search.lowercase(Locale.getDefault()))
+                    || country.nativeName?.lowercase(Locale.getDefault())!!.contains(search.lowercase(Locale.getDefault()))
         })
     }
 
@@ -50,7 +50,7 @@ class CountriesAdapter(private val countryClick: (Country) -> Unit) :
                 placeholder(R.drawable.ic_flag)
                 fallback(R.drawable.ic_flag)
             }
-            binding.root.setOnClickListener { countryClick.invoke(finalList!![adapterPosition]) }
+            binding.root.setOnClickListener { countryClick.invoke(finalList!![layoutPosition]) }
             binding.executePendingBindings()
         }
     }

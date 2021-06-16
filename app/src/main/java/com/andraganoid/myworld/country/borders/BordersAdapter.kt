@@ -29,7 +29,7 @@ class BordersAdapter(private val borders: List<Country>, private val countryClic
                 placeholder(R.drawable.ic_flag)
                 fallback(R.drawable.ic_flag)
             }
-            binding.root.setOnClickListener { countryClick.invoke(borders[adapterPosition]) }
+            binding.root.setOnClickListener { countryClick.invoke(borders[layoutPosition]) }
             binding.executePendingBindings()
         }
     }
