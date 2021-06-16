@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
+
         <variable
             name="languageItem"
             type="com.andraganoid.myworld.model.LanguagesItem" />
@@ -20,9 +21,9 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:paddingEnd="16dp">
 
             <TextView
@@ -32,77 +33,77 @@
                 android:text="@string/lang_native_name" />
 
             <TextView
-                android:layout_weight="2"
                 android:id="@+id/langNativeName"
                 style="@style/infoTextStyle"
+                android:layout_weight="2"
                 android:text="@{languageItem.nativeName}" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
 
             <TextView
                 android:id="@+id/labelLangName"
-                android:layout_weight="1"
                 style="@style/infoLabelStyle"
+                android:layout_weight="1"
                 android:text="@string/lang_name" />
 
             <TextView
                 android:id="@+id/langName"
-                android:layout_weight="2"
                 style="@style/infoTextStyle"
+                android:layout_weight="2"
                 android:text="@{languageItem.name}" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
 
             <TextView
                 android:id="@+id/label2Letter"
-                android:layout_weight="1"
                 style="@style/infoLabelStyle"
+                android:layout_weight="1"
                 android:text="@string/lang2Letter" />
 
             <TextView
                 android:id="@+id/i2Letter"
-                android:layout_weight="2"
                 style="@style/infoTextStyle"
-                android:textAlignment="viewStart"
-                android:text="@{languageItem.iso639_1}" />
+                android:layout_weight="2"
+                android:text="@{languageItem.iso639_1}"
+                android:textAlignment="viewStart" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
 
             <TextView
                 android:id="@+id/label3Letter"
-                android:layout_weight="1"
                 style="@style/infoLabelStyle"
+                android:layout_weight="1"
                 android:text="@string/lang3Letter" />
 
             <TextView
                 android:id="@+id/i3Letter"
-                android:layout_weight="2"
                 style="@style/infoTextStyle"
-                android:textAlignment="viewStart"
-                android:text="@{languageItem.iso639_2}" />
+                android:layout_weight="2"
+                android:text="@{languageItem.iso639_2}"
+                android:textAlignment="viewStart" />
         </LinearLayout>
 
         <View
-            android:visibility="@{divider?View.VISIBLE:View.GONE}"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/darkBlue"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="48dp"
-            android:layout_marginEnd="48dp" />
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="48dp"
+            android:background="@color/darkBlue"
+            android:visibility="@{divider?View.VISIBLE:View.GONE}" />
 
     </LinearLayout>
 

@@ -14,7 +14,7 @@ import com.andraganoid.myworld.model.Country
 import com.andraganoid.myworld.utils.ALL
 import com.andraganoid.myworld.utils.OTHER
 import com.andraganoid.myworld.utils.hideKeyboard
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class CountriesFragment : Fragment() {
