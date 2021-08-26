@@ -8,17 +8,15 @@ import com.andraganoid.myworld.country.borders.BordersViewModel
 import com.andraganoid.myworld.repo.CountriesRepository
 import com.andraganoid.myworld.utils.BASE_URL
 import com.andraganoid.myworld.utils.Preferences
-import com.google.gson.Gson
+import com.andraganoid.myworld.utils.moshi
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
-
 import org.koin.dsl.module
-import org.koin.dsl.single
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 object Modules {
@@ -35,7 +33,7 @@ object Modules {
 
     private val networkModule = module {
 
-        single { Gson() }
+        //   single { Gson() }
 
         single() {
             val builder = OkHttpClient.Builder()
@@ -53,7 +51,7 @@ object Modules {
             Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(get())
-                .addConverterFactory(GsonConverterFactory.create(get()))
+                .addConverterFactory(MoshiConverterFactory.create(moshi))
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .build()
         }

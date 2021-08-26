@@ -15,7 +15,7 @@ class BordersViewModel(private val preferences: Preferences) : ViewModel() {
     internal fun getBorders(country: Country) {
         val mBorders = arrayListOf<Country>()
         country.borders?.forEach { border ->
-            mBorders.add(preferences.getAllCountries().filter { country -> country.alpha3Code.equals(border) }[0])
+            mBorders.add(preferences.getAllCountries()!!.filter { country -> country.alpha3Code.equals(border) }[0])
         }
         _borders.value = mBorders
     }

@@ -21,7 +21,7 @@ class RegionalAdapter(private val regionalBlocks: List<RegionalBlocsItem?>?) : R
         fun bind(regionalBlocsItem: RegionalBlocsItem) {
 
             binding.regionalItem = regionalBlocsItem
-            binding.divider = regionalBlocks?.size != adapterPosition + 1
+            binding.divider = regionalBlocks?.size != layoutPosition + 1
             binding.executePendingBindings()
         }
     }

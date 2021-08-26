@@ -21,7 +21,7 @@ class LanguageAdapter(private val languages: List<LanguagesItem?>?) : RecyclerVi
         fun bind(language: LanguagesItem) {
 
             binding.languageItem = language
-            binding.divider = languages?.size != adapterPosition + 1
+            binding.divider = languages?.size != layoutPosition + 1
             binding.executePendingBindings()
         }
     }

@@ -20,7 +20,7 @@ class CurrencyAdapter(private val currencies: List<CurrenciesItem?>?) : Recycler
     inner class CurrencyViewHolder(private val binding: CurrencyItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(currency: CurrenciesItem) {
             binding.currencyItem = currency
-            binding.divider = currencies?.size != adapterPosition + 1
+            binding.divider = currencies?.size != layoutPosition + 1
             binding.executePendingBindings()
         }
     }

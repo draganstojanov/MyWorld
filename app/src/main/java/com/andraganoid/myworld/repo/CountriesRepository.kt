@@ -18,7 +18,7 @@ class CountriesRepository(private val countriesApi: CountriesApi, private val pr
                 response.isSuccess = false
             }
         } else {
-            mCountries = preferences.getAllCountries()
+            mCountries = preferences.getAllCountries()!!
         }
         response.apply {
             countries = mCountries
